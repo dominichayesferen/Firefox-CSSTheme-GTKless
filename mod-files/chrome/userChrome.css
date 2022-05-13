@@ -154,11 +154,6 @@
     :not(:-moz-lwtheme) #titlebar {
         color: var(--lwt-text-color) !important;
     }
-    :root[tabsintitlebar][sizemode="normal"]:not(:-moz-lwtheme):not([gtktiledwindow="true"]) #navigator-toolbox,
-    :root[tabsintitlebar][sizemode="normal"]:not(:-moz-lwtheme):not([gtktiledwindow="true"]) ::backdrop {
-    border-top-left-radius: env(-moz-gtk-csd-titlebar-radius) !important;
-    border-top-right-radius: env(-moz-gtk-csd-titlebar-radius) !important;
-    }
     :not(:-moz-lwtheme).tabbrowser-tab {
     color: inherit !important;
     }
@@ -225,4 +220,10 @@
         color: inherit !important;
     }
 
+    /* Temporary fix for border radius not matching properly with Adwaita */
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #navigator-toolbox,
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop {
+        border-top-left-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+        border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+    }
 }
