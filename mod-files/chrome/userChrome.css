@@ -261,8 +261,8 @@
         }
     }
 
-    ::-moz-selection {
-        background: var(--button-primary-bgcolor);
-        color: var(--button-primary-color);
+    :not(:-moz-lwtheme)::-moz-selection {
+        background: var(--button-primary-bgcolor) !important;
+        color: var(--button-primary-color) !important;
     }
 }
