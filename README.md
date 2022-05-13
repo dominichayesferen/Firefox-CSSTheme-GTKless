@@ -5,7 +5,7 @@
 
 <h1>Why?</h1>
 
-Firefox's GTK 'integration'... is a mess to put it bluntly. From issues with the titlebar buttons in Firefox REALLY not liking any GTK theme that doesn't use square titlebar buttons of a particular size, to light themed GTK controls on otherwise dark Firefox themes, to readability issues galore, Firefox has likely been the bane of a lot of GTK stylesheet developers (definitely the bane of mine, as a GTK stylesheet developer myself prior).
+Firefox's GTK 'integration'... is a mess to put it bluntly (not to offend the people who worked on it). From issues with the titlebar buttons in Firefox REALLY not liking any GTK theme that doesn't use square titlebar buttons of a particular size, to light themed GTK controls on otherwise dark Firefox themes, to readability issues galore, Firefox has likely been the bane of a lot of GTK stylesheet developers (definitely the bane of mine, as a GTK stylesheet developer myself prior).
 
 So, since it doesn't seem like the 'integration' is going to get better anytime soon in Firefox, I decided to take it upon myself to prove that if Firefox got rid of the GTK 'integration' it would be a less buggier experience without it... by just removing the GTK 'integration', with CSS-modding, where currently possible.
 
