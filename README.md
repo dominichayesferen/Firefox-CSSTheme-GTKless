@@ -1,7 +1,7 @@
 # Firefox for Linux, without the GTK 'integration' (CSS modification)
 ...or "Firefox GTKless", is a CSS mod for Firefox that aims to get rid of as much of the GTK integration in Firefox as possible, by at least overriding it all where possible with 'lwt-theme' (the internal name for non-GTK Firefox styling) code.
 
-Coming Soon.
+Coming Soon, currently incomplete.
 
 <h1>Why?</h1>
 
@@ -17,7 +17,13 @@ I've decided to release the fruits of that project here, hoping that in time peo
 
 If you've seen how Firefox looks like on Windows or macOS, then you've seen what's going on with this CSS modification. 'System Theme' under this modification has been converted into an automatically switching Light/Dark Firefox theme, switching to the style of the appropriate Firefox theme based on your current dark mode preferences, even updating on the fly (even if your GTK stylesheet is locked to light or dark).
 
-(images coming soon)
+<h2>Light Theme</h2>
+
+![Firefox GTKless on a light theme](https://github.com/dominichayesferen/Firefox-CSSTheme-GTKless/raw/main/screenshots/light.png)
+
+<h2>Dark Theme</h2>
+
+![Firefox GTKless on a dark theme](https://github.com/dominichayesferen/Firefox-CSSTheme-GTKless/raw/main/screenshots/dark.png)
 
 <h1>Installation</h1>
 
