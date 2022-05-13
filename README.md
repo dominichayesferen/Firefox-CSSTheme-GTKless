@@ -9,7 +9,7 @@ So, since it doesn't seem like the 'integration' is going to get better anytime 
 
 I have some limitations set, here, such as the desire to make it be usable in sandboxed versions of Firefox like the official Flatpak, so can't just recompile Firefox or whatever to do this, and this is the end result of working with those limitations in mind to try and do this.
 
-I've decided to release the fruits of that project here, in time that people can ultimately find good use for this side-project while the 'integration' of GTK in Firefox is still the mess it is.
+I've decided to release the fruits of that project here, hoping that in time that people can ultimately find good use for this side-project while the 'integration' of GTK in Firefox is still the mess it is.
 
 <h1>What does it look like?</h1>
 
