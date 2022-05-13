@@ -49,8 +49,6 @@ Here are options that can be set via about:config to further improve the experie
 - `gtkless.no-titlebar-spacer`: Gets rid of the functionless space on the left of the tabs in titlebars
 - `gtkless.colors-adwaita`: Changes colours to be based on LibAdwaita instead
 
-TODO: Add colour scheme options?
-
 <h1>Notes</h1>
 
 - All the code on the CSS is taken out of Firefox's CSS, therefore all credit mainly goes to the makers of Firefox's CSS (I'll get the correct license and credits files all sorted out in a future commit)
