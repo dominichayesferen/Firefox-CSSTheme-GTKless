@@ -1,5 +1,5 @@
 # Firefox for Linux, without the GTK 'integration'
-...or "Firefox GTKless", is a CSS mod for Firefox that aims to get rid of as much of the GTK integration in Firefox as possible, by at least overriding it all where possible with 'lightweight theme' (the internal name for non-GTK Firefox styling) code.
+...or "Firefox GTKless", is a CSS mod for Firefox that aims to get rid of as much of the GTK integration in Firefox as possible, by at least overriding it all where possible with 'lwt-theme' (the internal name for non-GTK Firefox styling) code.
 
 <h1>Why?</h1>
 
@@ -33,7 +33,7 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 - Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK buttons Firefox has
 - System Theme now visually matches the Light on a light theme, or Dark on a dark theme, themes Firefox has as optional theme selections (thus also matching how System Theme works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - Firefox themes are unaffected, as this CSS modification is designed to only affect "System Theme"
-- The specific changes made to CSS when Firefox is in 'lightweight theme' mode are now applied on the "System Theme" too
+- The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
 <h1>Options</h1>
 
@@ -45,3 +45,4 @@ TODO: Option for removing the useless space on the left of tabs, and Option for 
 
 - All the code on the CSS is taken out of Firefox's CSS, therefore all credit mainly goes to the makers of Firefox's CSS (I'll get the correct license and credits files all sorted out in a future commit)
 - In the event Firefox's CSS, for the parts of it that this modification uses, changes even just slightly, the modification will still use the old CSS and therefore need to be updated
+- This is in no way meant to be taken as an insult to the work done on Firefox's code, nor those maintaining Firefox
