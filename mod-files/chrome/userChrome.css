@@ -1,0 +1,226 @@
+@-moz-document url('chrome://browser/content/browser.xhtml') {
+
+    .titlebar-spacer {
+        width: 2px !important;
+    }
+
+    /* Cursed buttons from Firefox */
+    .titlebar-button {
+        appearance: none !important;
+        border-radius: 100% !important;
+    }
+    .titlebar-button > .toolbarbutton-icon {
+        padding: 6px !important;
+        -moz-context-properties: stroke !important;
+        stroke: currentColor !important;
+    }
+    .titlebar-min {
+        list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important;
+    }
+    .titlebar-max {
+        list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important;
+    }
+    .titlebar-restore {
+        list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important;
+    }
+    .titlebar-close {
+        list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important;
+    }
+    .titlebar-button:hover {
+        background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
+    }
+    .titlebar-button:hover:active {
+        background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
+    }
+    .titlebar-close:hover {
+        background-color: #d70022 !important;
+        color: white !important;
+    }
+    .titlebar-close:hover:active {
+        background-color: #ff0039 !important;
+    }
+
+    /* Standard Default Firefox Colours */
+    /* LIGHT THEME */
+    @media {
+        :root:not(:-moz-lwtheme) {
+            --urlbar-popup-action-color: rgb(91, 91, 102) !important;
+            --button-bgcolor: rgba(207, 207, 216, 0.33000001311302185) !important;
+            --button-hover-bgcolor: rgba(207, 207, 216, 0.6600000262260437) !important;
+            --button-active-bgcolor: rgb(207, 207, 216) !important;
+            --button-primary-bgcolor: rgb(0, 97, 224) !important;
+            --button-primary-hover-bgcolor: rgb(2, 80, 187) !important;
+            --button-primary-active-bgcolor: rgb(5, 62, 148) !important;
+            --button-primary-color: rgb(251, 251, 254) !important;
+            --error-text-color: rgb(197, 0, 66) !important;
+            --input-color: rgb(21, 20, 26) !important;
+            --input-bgcolor: rgb(255, 255, 255) !important;
+            --autocomplete-popup-hover-background: rgb(240, 240, 244) !important;
+            --autocomplete-popup-separator-color: rgb(240, 240, 244) !important;
+            --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
+            --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
+            --tab-icon-overlay-stroke: rgb(255, 255, 255) !important;
+            --tab-icon-overlay-fill: rgb(91, 91, 102) !important;
+            --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 12%, transparent) !important;
+            --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 20%, transparent) !important;
+            --panel-item-active-bgcolor: color-mix(in srgb, currentColor 27%, transparent) !important;
+            --urlbar-icon-fill-opacity: 0.72 !important;
+            --input-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+            --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+            --lwt-accent-color: rgb(240, 240, 244) !important;
+            --lwt-text-color: rgba(21, 20, 26) !important;
+            --arrowpanel-background: rgb(255, 255, 255) !important;
+            --panel-disabled-color: rgba(21, 20, 26, 0.5) !important;
+            --panel-description-color: rgba(21, 20, 26, 0.7) !important;
+            --arrowpanel-color: rgba(21, 20, 26, 1) !important;
+            --arrowpanel-border-color: rgb(240, 240, 244) !important;
+            --toolbar-field-background-color: rgb(240, 240, 244) !important;
+            --toolbar-field-color: rgb(21, 20, 26) !important;
+            --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
+            --toolbar-field-focus-background-color: rgba(255, 255, 255, 1) !important;
+            --toolbar-field-focus-color: rgb(21, 20, 26) !important;
+            --lwt-tab-text: rgb(21, 20, 26) !important;
+            --toolbar-bgcolor: rgb(249, 249, 251) !important;
+            --toolbar-bgimage: none !important;
+            --toolbar-color: rgb(21, 20, 26) !important;
+            --chrome-content-separator-color: rgb(204, 204, 204) !important;
+            --toolbarbutton-icon-fill: rgb(91, 91, 102) !important;
+            --lwt-selected-tab-background-color: rgb(255, 255, 255) !important;
+            --autocomplete-popup-highlight-background: rgb(224, 224, 230) !important;
+            --autocomplete-popup-highlight-color: rgb(21, 20, 26) !important;
+            --tabpanel-background-color: rgb(249, 249, 251) !important;
+            --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
+            --panel-separator-color: hsla(210,4%,10%,.14) !important;
+        }
+    }
+
+    /* DARK THEME */
+    @media (prefers-color-scheme: dark) {
+        :root:not(:-moz-lwtheme) {
+            --lwt-accent-color: rgb(28, 27, 34) !important;
+            --lwt-text-color: rgba(251, 251, 254) !important;
+            --button-bgcolor: rgb(43, 42, 51) !important;
+            --button-hover-bgcolor: rgb(82, 82, 94) !important;
+            --button-active-bgcolor: rgb(91, 91, 102) !important;
+            --button-primary-bgcolor: rgb(0, 221, 255) !important;
+            --button-primary-hover-bgcolor: rgb(128, 235, 255) !important;
+            --button-primary-active-bgcolor: rgb(170, 242, 255) !important;
+            --button-primary-color: rgb(43, 42, 51) !important;
+            --error-text-color: rgb(255, 154, 162) !important;
+            --input-bgcolor: rgb(66, 65, 77) !important;
+            --input-color: rgb(251, 251, 254) !important;
+            --input-border-color: rgb(143, 143, 157) !important;
+            --autocomplete-popup-separator-color: rgb(82, 82, 94) !important;
+            --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
+            --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
+            --tab-icon-overlay-stroke: rgb(66, 65, 77) !important;
+            --tab-icon-overlay-fill: rgb(251, 251, 254) !important;
+            --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
+            --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 14%, transparent) !important;
+            --panel-item-active-bgcolor: color-mix(in srgb, currentColor 25%, transparent) !important;
+            --urlbar-icon-fill-opacity: 1 !important;
+            --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+            --arrowpanel-background: rgb(66, 65, 77) !important;
+            --panel-disabled-color: rgba(251, 251, 254, 0.5) !important;
+            --panel-description-color: rgba(251, 251, 254, 0.7) !important;
+            --arrowpanel-color: rgba(251, 251, 254, 1) !important;
+            --arrowpanel-border-color: rgb(82, 82, 94) !important;
+            --toolbar-field-background-color: rgb(28, 27, 34) !important;
+            --toolbar-field-color: rgb(251, 251, 254) !important;
+            --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
+            --toolbar-field-focus-background-color: rgba(66, 65, 77, 1) !important;
+            --toolbar-field-focus-color: rgb(251, 251, 254) !important;
+            --lwt-tab-text: rgb(251, 251, 254) !important;
+            --toolbar-bgcolor: rgb(43, 42, 51) !important;
+            --toolbar-bgimage: none !important;
+            --toolbar-color: rgb(251, 251, 254) !important;
+            --chrome-content-separator-color: rgb(12, 12, 13) !important;
+            --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
+            --lwt-selected-tab-background-color: rgb(66, 65, 77) !important;
+            --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
+            --tabpanel-background-color: rgb(43, 42, 51) !important;
+            --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
+            --panel-separator-color: rgba(249,249,250,.1) !important;
+        }
+    }
+
+    /* Standard Default Firefox appearance */
+    :not(:-moz-lwtheme) #navigator-toolbox {
+        background: var(--lwt-accent-color) !important;
+        color: var(--toolbar-color) !important;
+    }
+    :not(:-moz-lwtheme) #titlebar {
+        color: var(--lwt-text-color) !important;
+    }
+    :root[tabsintitlebar][sizemode="normal"]:not(:-moz-lwtheme):not([gtktiledwindow="true"]) #navigator-toolbox,
+    :root[tabsintitlebar][sizemode="normal"]:not(:-moz-lwtheme):not([gtktiledwindow="true"]) ::backdrop {
+    border-top-left-radius: env(-moz-gtk-csd-titlebar-radius) !important;
+    border-top-right-radius: env(-moz-gtk-csd-titlebar-radius) !important;
+    }
+    :not(:-moz-lwtheme).tabbrowser-tab {
+    color: inherit !important;
+    }
+    :not(:-moz-lwtheme).tabbrowser-tab:is([selected], [multiselected]) {
+    color: var(--lwt-tab-text, var(--toolbar-color)) !important;
+    }
+    @media not (prefers-contrast) {
+        :not(:-moz-lwtheme).tab-background:is([selected], [multiselected]) {
+            border: 1px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor)) !important;
+        }
+    }
+
+    :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected=true],
+    :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected=true] {
+        background-attachment: scroll, scroll, fixed !important;
+        background-color: transparent !important;
+        background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+                        linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                        var(--lwt-header-image, none) !important;
+        background-position: 0 0, 0 0, right top !important;
+        background-repeat: repeat-x, repeat-x, no-repeat !important;
+        background-size: auto 100%, auto 100%, auto auto !important;
+    }
+    :not(:-moz-lwtheme) #TabsToolbar {
+        --attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(42,195,162)) !important;
+    }
+    :not(:-moz-lwtheme) #TabsToolbar[brighttext] {
+        --attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(84,255,189)) !important;
+    }
+    :not(:-moz-lwtheme) #urlbar {
+        --urlbar-box-bgcolor: var(--toolbar-field-focus-background-color) !important;
+        --urlbar-box-focus-bgcolor: var(--button-bgcolor) !important;
+        --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor) !important;
+    }
+
+    :not(:-moz-lwtheme) #customization-container {
+        background-image: var(--toolbar-bgimage), linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)) !important;
+    }
+
+    :not(:-moz-lwtheme) .text-link {
+        color: inherit !important;
+        text-decoration: underline !important;
+    }
+
+    :not(:-moz-lwtheme) toolbar {
+        appearance: none !important;
+        color: inherit !important;
+    }
+
+    :not(:-moz-lwtheme) toolbarbutton:where([checked="true"]) {
+        color: inherit !important;
+    }
+
+    :not(:-moz-lwtheme) toolbarbutton:where(:hover) {
+        color: inherit !important;
+    }
+
+    :not(:-moz-lwtheme) toolbarbutton:where(:hover:active:not([disabled="true"])),
+    :not(:-moz-lwtheme) toolbarbutton:where([open="true"]) {
+        color: inherit !important;
+    }
+
+    :not(:-moz-lwtheme) toolbarbutton:where([disabled="true"]) {
+        color: inherit !important;
+    }
+
+}
