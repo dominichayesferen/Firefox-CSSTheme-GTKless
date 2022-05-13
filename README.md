@@ -1,7 +1,7 @@
 # Firefox for Linux, without the GTK 'integration' (CSS modification)
 ...or "Firefox GTKless", is a CSS mod for Firefox that aims to get rid of as much of the GTK integration in Firefox as possible, by at least overriding it all where possible with 'lwt-theme' (the internal name for non-GTK Firefox styling) code.
 
-Coming Soon, currently incomplete.
+![Firefox GTKless on a light theme](https://github.com/dominichayesferen/Firefox-CSSTheme-GTKless/raw/main/screenshots/light.png)
 
 <h1>Why?</h1>
 
