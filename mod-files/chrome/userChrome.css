@@ -100,6 +100,12 @@
             --tabpanel-background-color: rgb(249, 249, 251) !important;
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
             --panel-separator-color: hsla(210,4%,10%,.14) !important;
+            --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+            --focus-outline-color: #0061E0 !important;
+            --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(0,97,224)) !important;
+            --warning-icon-bgcolor: #FFA436 !important;
+            --urlbar-popup-url-color: rgb(0,97,224) !important;
+            --urlbar-popup-action-color: rgb(91,91,102) !important;
         }
     }
 
@@ -152,10 +158,22 @@
             --tabpanel-background-color: rgb(43, 42, 51) !important;
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
             --panel-separator-color: rgba(249,249,250,.1) !important;
+            --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+            --focus-outline-color: #00DDFF !important;
+            --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(0,221,255)) !important;
+            --warning-icon-bgcolor: #FFBD4F !important;
+            --urlbar-popup-url-color: var(--lwt-brighttext-url-color) !important;
+            --urlbar-popup-action-color: #30e60b !important;
         }
     }
 
     /* Standard Default Firefox appearance */
+    #main-window:not(:-moz-lwtheme) {
+        color: var(--lwt-text-color);
+    }
+    :not(:-moz-lwtheme) {
+        --tab-selected-bgimage: none !important;
+    }
     :not(:-moz-lwtheme) #navigator-toolbox {
         background: var(--lwt-accent-color) !important;
         color: var(--toolbar-color) !important;
@@ -241,5 +259,10 @@
         :root:not(:-moz-lwtheme) #searchbar:focus-within {
             color-scheme: dark !important;
         }
+    }
+
+    ::-moz-selection {
+        background: var(--button-primary-bgcolor);
+        color: var(--button-primary-color);
     }
 }
