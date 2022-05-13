@@ -58,7 +58,7 @@ Here are options that can be set via about:config to further improve the experie
 
 <h1>Notes</h1>
 
-- All the code on the CSS is taken out of Firefox's CSS, therefore all credit mainly goes to the makers of Firefox's CSS (refer to LICENSE, too)
+- Most of the code on the CSS is taken out of Firefox's CSS, therefore credit mainly goes to the makers of Firefox's CSS (refer to LICENSE, too)
 - In the event Firefox's CSS, for the parts of it that this modification uses, changes even just slightly, the modification will still use the old CSS and therefore need to be updated
 - Firefox themes are unaffected, as this CSS modification is designed to only affect "System Theme"
 - This is in no way meant to be taken as an insult to the work done on Firefox's code, nor those maintaining Firefox
