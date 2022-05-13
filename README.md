@@ -64,3 +64,4 @@ Here are options that can be set via about:config to further improve the experie
 - Scrollbars are seemingly hardcoded so I couldn't CSS-style them
 - Buttons in Customise are hardcoded, it seems, so cannot be themed, otherwise I would've made them look like Firefox buttons
 - This is in no way meant to be taken as an insult to the work done on Firefox's code, nor those maintaining Firefox
+- This was tested with Adwaita as the GTK theme
