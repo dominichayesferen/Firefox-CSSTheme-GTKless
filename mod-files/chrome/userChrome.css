@@ -6,6 +6,13 @@
         }
     }
 
+    /* Temporary fix for border radius not matching properly with Adwaita */
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #navigator-toolbox,
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop {
+        border-top-left-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+        border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+    }
+
     /* Cursed buttons from Firefox */
     .titlebar-button {
         appearance: none !important;
@@ -44,8 +51,8 @@
 
     /* Standard Default Firefox Colours */
     /* LIGHT THEME */
-    @media {
-        :root:not(:-moz-lwtheme) {
+    @media (prefers-color-scheme: light) {
+        :not(:-moz-lwtheme) {
             --urlbar-popup-action-color: rgb(91, 91, 102) !important;
             --button-bgcolor: rgba(207, 207, 216, 0.33000001311302185) !important;
             --button-hover-bgcolor: rgba(207, 207, 216, 0.6600000262260437) !important;
@@ -98,7 +105,10 @@
 
     /* DARK THEME */
     @media (prefers-color-scheme: dark) {
-        :root:not(:-moz-lwtheme) {
+        :not(:-moz-lwtheme) {
+            --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
+            --autocomplete-popup-highlight-color: white !important;
+            --urlbar-popup-action-color: rgb(191, 191, 201) !important;
             --lwt-accent-color: rgb(28, 27, 34) !important;
             --lwt-text-color: rgba(251, 251, 254) !important;
             --button-bgcolor: rgb(43, 42, 51) !important;
@@ -139,7 +149,6 @@
             --chrome-content-separator-color: rgb(12, 12, 13) !important;
             --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
             --lwt-selected-tab-background-color: rgb(66, 65, 77) !important;
-            --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
             --tabpanel-background-color: rgb(43, 42, 51) !important;
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
             --panel-separator-color: rgba(249,249,250,.1) !important;
@@ -220,10 +229,17 @@
         color: inherit !important;
     }
 
-    /* Temporary fix for border radius not matching properly with Adwaita */
-    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #navigator-toolbox,
-    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop {
-        border-top-left-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
-        border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+    :not(:-moz-lwtheme) #urlbar,
+    :not(:-moz-lwtheme) #searchbar {
+        color-scheme: light !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root:not(:-moz-lwtheme) #urlbar:not([focused="true"]),
+        :root:not(:-moz-lwtheme) #searchbar:not(:focus-within),
+        :root:not(:-moz-lwtheme) #urlbar[focused="true"],
+        :root:not(:-moz-lwtheme) #searchbar:focus-within {
+            color-scheme: dark !important;
+        }
     }
 }
