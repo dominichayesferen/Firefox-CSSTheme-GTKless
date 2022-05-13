@@ -1,6 +1,8 @@
 # Firefox for Linux, without the GTK 'integration'
 ...or "Firefox GTKless", is a CSS mod for Firefox that aims to get rid of as much of the GTK integration in Firefox as possible, by at least overriding it all where possible with 'lwt-theme' (the internal name for non-GTK Firefox styling) code.
 
+Coming Soon.
+
 <h1>Why?</h1>
 
 Firefox's GTK 'integration'... is a mess to put it bluntly. From issues with the titlebar buttons in Firefox REALLY not liking any GTK theme that doesn't use square titlebar buttons of a particular size, to light themed GTK controls on otherwise dark Firefox themes, to readability issues galore, Firefox has likely been the bane of a lot of GTK stylesheet developers (definitely the bane of mine, as a GTK stylesheet developer myself prior).
@@ -9,7 +11,7 @@ So, since it doesn't seem like the 'integration' is going to get better anytime 
 
 I have some limitations set, here, such as the desire to make it be usable in sandboxed versions of Firefox like the official Flatpak, so can't just recompile Firefox or whatever to do this, and this is the end result of working with those limitations in mind to try and do this.
 
-I've decided to release the fruits of that project here, hoping that in time that people can ultimately find good use for this side-project while the 'integration' of GTK in Firefox is still the mess it is.
+I've decided to release the fruits of that project here, hoping that in time people can ultimately find some good use for this side-project while the 'integration' of GTK in Firefox is still the mess it is.
 
 <h1>What does it look like?</h1>
 
@@ -31,7 +33,7 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 
 - Titlebar buttons have their DPI-scaling fixed, since they are now always the non-buggy Firefox-inbuilt ones (they're usually only relegated to usage in Firefox themes, and formely in full-screen)
 - Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK buttons Firefox has
-- System Theme now visually matches the Light on a light theme, or Dark on a dark theme, theme Firefox has as optional theme selections (thus also matching how System Theme works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
+- System Theme now visually matches the Light theme, on a light theme, or Dark on a dark theme, that Firefox otherwise has as optional theme selections (thus also matching how System Theme currently works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
 <h1>Options</h1>
