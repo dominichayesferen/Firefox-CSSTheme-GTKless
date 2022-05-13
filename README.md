@@ -27,9 +27,16 @@ If you've seen how Firefox looks like on Windows or macOS, then you've seen what
 
 <h1>Installation</h1>
 
-TBD
+To install this theme, simply do the following steps:
 
-TODO: Also mention about:config tweaks, or put them in the mod's installation script.
+1. See that "Code" button up there? Whack it real nice.
+2. Select Download ZIP.
+3. Find your newly obtained .zip and extract the thing.
+4. Go into the newly extracted folder.
+5. From there, right-click install.sh, Properties, Permissions, Allow Executing.
+6. Double-click the install.sh file.
+7. Choose "Run" or "Execute".
+8. Restart Firefox once done, and enjoy your new GTKless CSSTheme.
 
 <h1>Longevity of this CSS mod?</h1>
 
@@ -42,7 +49,7 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 - System Theme now visually matches the Light theme, on a light theme, or Dark on a dark theme, that Firefox otherwise has as optional theme selections (thus also matching how System Theme currently works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
-<h1>Options</h1>
+<h1>Theme options in about:config</h1>
 
 Here are options that can be set via about:config to further improve the experience while this CSS mod is installed (restart Firefox after applying them for changes to take effect):
 
