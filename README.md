@@ -32,7 +32,6 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 - Titlebar buttons have their DPI-scaling fixed, since they are now always the non-buggy Firefox-inbuilt ones (they're usually only relegated to usage in Firefox themes, and formely in full-screen)
 - Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK buttons Firefox has
 - System Theme now visually matches the Light on a light theme, or Dark on a dark theme, themes Firefox has as optional theme selections (thus also matching how System Theme works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
-- Firefox themes are unaffected, as this CSS modification is designed to only affect "System Theme"
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
 <h1>Options</h1>
@@ -45,4 +44,5 @@ TODO: Option for removing the useless space on the left of tabs, and Option for 
 
 - All the code on the CSS is taken out of Firefox's CSS, therefore all credit mainly goes to the makers of Firefox's CSS (I'll get the correct license and credits files all sorted out in a future commit)
 - In the event Firefox's CSS, for the parts of it that this modification uses, changes even just slightly, the modification will still use the old CSS and therefore need to be updated
+- Firefox themes are unaffected, as this CSS modification is designed to only affect "System Theme"
 - This is in no way meant to be taken as an insult to the work done on Firefox's code, nor those maintaining Firefox
