@@ -31,7 +31,7 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 
 - Titlebar buttons have their DPI-scaling fixed, since they are now always the non-buggy Firefox-inbuilt ones (they're usually only relegated to usage in Firefox themes, and formely in full-screen)
 - Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK buttons Firefox has
-- System Theme now visually matches the Light on a light theme, or Dark on a dark theme, themes Firefox has as optional theme selections (thus also matching how System Theme works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
+- System Theme now visually matches the Light on a light theme, or Dark on a dark theme, theme Firefox has as optional theme selections (thus also matching how System Theme works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
 <h1>Options</h1>
