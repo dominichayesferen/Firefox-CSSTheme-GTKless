@@ -1,7 +1,9 @@
 @-moz-document url('chrome://browser/content/browser.xhtml') {
 
-    .titlebar-spacer {
-        width: 2px !important;
+    @supports -moz-bool-pref("gtkless.no-titlebar-spacer") {
+        .titlebar-spacer {
+            width: 2px !important;
+        }
     }
 
     /* Cursed buttons from Firefox */
