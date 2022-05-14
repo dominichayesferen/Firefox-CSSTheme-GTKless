@@ -177,6 +177,44 @@
         }
     }
 
+    :host,
+    :root {
+        --in-content-page-color: rgb(21, 20, 26);
+        --in-content-text-color: var(--in-content-page-color);
+        --in-content-button-text-color: var(--in-content-text-color);
+        --in-content-button-text-color-hover: var(--in-content-text-color);
+        --in-content-button-text-color-active: var(--in-content-button-text-color-hover);
+        --in-content-button-background: rgba(207,207,216,.33);
+        --in-content-button-background-hover: rgba(207,207,216,.66);
+        --in-content-button-background-active: rgb(207,207,216);
+        --in-content-button-border-color: transparent;
+        --in-content-button-border-color-hover: transparent;
+        --in-content-button-border-color-active: var(--in-content-button-border-color-hover);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :host,
+        :root {
+            --in-content-page-color: rgb(251,251,254);
+            --in-content-button-background: rgb(43,42,51);
+            --in-content-button-background-hover: rgb(82,82,94);
+            --in-content-button-background-active: rgb(91,91,102);
+        }
+    }
+
+    @media (prefers-contrast) {
+        :host,
+        :root {
+            --in-content-page-color: WindowText;
+            --in-content-button-text-color: ButtonText;
+            --in-content-button-text-color-hover: ButtonFace;
+            --in-content-button-background: ButtonFace;
+            --in-content-button-background-hover: ButtonText;
+            --in-content-button-background-active: ButtonText;
+            --in-content-button-border-color: ButtonText;
+        }
+    }
+
     /* Standard Default Firefox appearance */
     #main-window:not(:-moz-lwtheme) {
         color: var(--lwt-text-color);
@@ -274,6 +312,61 @@
     :not(:-moz-lwtheme)::-moz-selection {
         background: var(--button-primary-bgcolor) !important;
         color: var(--button-primary-color) !important;
+    }
+
+    /* Stupid to unhardcode buttons */
+    .customizationmode-button {
+        -moz-appearance: none !important;
+        font: inherit !important;
+
+        min-height: 32px !important;
+        color: var(--in-content-button-text-color) !important;
+        border: 1px solid transparent !important;
+        border-radius: 4px !important;
+        background-color: color-mix(in srgb, var(--in-content-button-background) 92%, var(--in-content-button-text-color)) !important;
+        padding: 7px 15px !important;
+        text-decoration: none !important;
+        margin: 4px 8px !important;
+        margin-inline: 4px !important;
+        font-size: 1em !important;
+        font-weight: 600 !important;
+    }
+    .customizationmode-button:hover {
+        color: var(--in-content-button-text-color-hover) !important;
+        background-color: var(--in-content-button-background-hover) !important;
+    }
+    .customizationmode-button:active {
+        color: var(--in-content-button-text-color-active) !important;
+        background-color: var(--in-content-button-background-active) !important;
+    }
+    .customizationmode-button:disabled {
+        opacity: 0.4 !important;
+    }
+    .customizationmode-button > .button-box > .button-text {
+        margin: 0 !important;
+    }
+    .customizationmode-button .button-menu-dropmarker {
+        appearance: none !important;
+    }
+    .customizationmode-button .button-menu-dropmarker::before {
+        content: "▾";
+        padding: 0 4px !important;
+    }
+
+
+    /* Stupid to unhardcode scrollbars */
+    scrollbar {
+        -moz-appearance: none !important;
+        background: var(--in-content-page-background) !important;
+    }
+    slider {
+        -moz-appearance: none !important;
+    }
+    thumb {
+        -moz-appearance: none !important;
+        background: var(--in-content-page-color) !important;
+        border: 3px solid var(--in-content-page-background) !important;
+        border-radius: 5px !important;
     }
 
 
