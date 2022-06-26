@@ -45,9 +45,9 @@ for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/fire
         for profile in *; do if [ -f "$profile/prefs.js" ]; then
             echo "Detected profile: $directory/$profile, installing Firefox GTKless to this profile..."
             if [ -d "$profile/chrome" ]; then
-                if ! grep -q '/* FIREFOX GTKLESS STYLE CHECK HEADER -' "$profile/chrome/userChrome.css"; then
+                if ! grep -q '/* FIREFOX GTKLESS STYLE CHECK HEADER -' "$profile/chrome/ferenChrome.css"; then
                     bkupcounts=0
-                    while [ -f "$profile/chrome.bak""$bkupcounts" ]; do
+                    while [ -d "$profile/chrome.bak""$bkupcounts" ]; do
                         bkupcounts=$(($bkupcounts+1))
                     done
                     mv -f "$profile/chrome" "$profile/chrome.bak""$bkupcounts"
