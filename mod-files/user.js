@@ -13,4 +13,6 @@ user_pref("widget.gtk.alt-theme.scrollbar_active", false);
 user_pref("widget.gtk.alt-theme.selection", false);
 user_pref("widget.gtk.overlay-scrollbars.enabled", false);
 user_pref("widget.gtk.theme-scrollbar-colors.enabled", false);
+user_pref("layout.css.backdrop-filter.enabled", true);
 user_pref("layout.css.color-mix.enabled", true);
+user_pref("svg.context-properties.content.enabled", true);
