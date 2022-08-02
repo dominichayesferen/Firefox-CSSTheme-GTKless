@@ -44,8 +44,8 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 
 <h1>Summary of changes and known fixes they make</h1>
 
-- Titlebar buttons have their DPI-scaling fixed, since they are now always the non-buggy Firefox-inbuilt ones (they're usually only relegated to usage in Firefox themes, and formely in full-screen)
-- Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK buttons Firefox has
+- Titlebar buttons have their DPI-scaling fixed, since they are now always the non-troublesome Firefox-inbuilt ones (they're normally only relegated to usage in Firefox themes, and formely in full-screen)
+- Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK controls Firefox has
 - System Theme now visually matches the Light theme, on a light theme, or Dark on a dark theme, that Firefox otherwise has as optional theme selections (thus also matching how System Theme currently works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
 
@@ -62,6 +62,5 @@ Here are options that can be set via about:config to further improve the experie
 - In the event Firefox's CSS, for the parts of it that this modification uses, changes even just slightly, the modification will still use the old CSS and therefore need to be updated
 - Firefox themes are unaffected, as this CSS modification is designed to only affect "System Theme"
 - Scrollbars are seemingly hardcoded so I couldn't CSS-style them
-- Buttons in Customise are hardcoded, it seems, so cannot be themed, otherwise I would've made them look like Firefox buttons
 - This is in no way meant to be taken as an insult to the work done on Firefox's code, nor those maintaining Firefox
 - This was tested with Adwaita as the GTK theme
