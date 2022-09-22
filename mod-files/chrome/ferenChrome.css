@@ -34,6 +34,9 @@
         -moz-context-properties: stroke !important;
         stroke: currentColor !important;
     }
+    :root[lwtheme-brighttext] .titlebar-button:not(.titlebar-close:hover) > .toolbarbutton-icon {
+        filter: drop-shadow(1px 1px 1.5px black) !important;
+    } /* Matching drop-shadow for buttons sourced from tab-text shadow when on respective themes */
     .titlebar-min {
         list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important;
     }
