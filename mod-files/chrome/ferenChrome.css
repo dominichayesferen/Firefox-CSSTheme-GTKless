@@ -429,6 +429,22 @@
         content: "⯈";
         padding: 0 4px !important;
     }
+    menu[checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[checked="true"] .menu-iconic-left > .menu-iconic-icon {
+        appearance: none !important;
+        background-color: currentColor !important;
+    }
+    menu[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon {
+        mask-image: url("chrome://global/skin/icons/check.svg") !important;
+    }
+    menu[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon {
+        mask-image: url("chrome://global/skin/icons/radio.svg") !important;
+    }
 
 
 
