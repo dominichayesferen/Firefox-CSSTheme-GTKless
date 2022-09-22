@@ -48,6 +48,8 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 - Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK controls Firefox has
 - System Theme now visually matches the Light theme, on a light theme, or Dark on a dark theme, that Firefox otherwise has as optional theme selections (thus also matching how System Theme currently works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - The specific changes made to CSS when Firefox is in 'lwt-theme' mode are now applied on the "System Theme" too
+- Right-click menus, and menus spawned from the optional menubar, have been overhauled to be styled after Firefox's main menu (for consistency, and because there's no official menu style otherwise)
+- Buttons in Customise Toolbar are now styled after the buttons in Settings (potentially making this the first ever CSS mod to actually style the buttons in Customise Toolbar?)
 
 <h1>Theme options in about:config</h1>
 
