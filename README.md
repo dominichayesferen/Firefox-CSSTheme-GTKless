@@ -29,8 +29,8 @@ If you've seen how Firefox looks like on Windows or macOS, then you've seen what
 
 To install this theme, simply do the following steps:
 
-1. See that "Code" button up there? Whack it real nice.
-2. Select Download ZIP.
+1. See that "Releases" section on the right there? Whack the version number on it real nice.
+2. Select `Source code (.zip)`.
 3. Find your newly obtained .zip and extract the thing.
 4. Go into the newly extracted folder.
 5. From there, right-click install.sh, Properties, Permissions, Allow Executing.
