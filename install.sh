@@ -52,11 +52,19 @@ for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/fire
                     done
                     mv -f "$profile/chrome" "$profile/chrome.bak""$bkupcounts"
                     echo "Backed up your old userChrome folder to chrome.bak""$bkupcounts."
-                else #Delete old userChrome if it's just an installation of GTKless
-                    rm -rf "$profile/chrome"
+                else #Delete old ferenChrome, but leave userChrome.css intact, if it's just an installation of GTKless
+                    rm -f "$profile/chrome/ferenChrome.css"
                 fi
             fi
-            cp -Rf "$DIR/mod-files/chrome" "$profile/chrome"
+            if [ ! -d "$profile/chrome" ]; then #On new installs, remake the chrome folder...
+                mkdir "$profile/chrome"
+            fi
+            if [ ! -f "$profile/chrome/userChrome.css" ]; then #...and copy everything over.
+                cp -Rf "$DIR/mod-files/chrome/"* "$profile/chrome/"
+            else #If GTKless is already installed, only replace GTKless's CSS
+                cp -f "$DIR/mod-files/chrome/ferenChrome.css" "$profile/chrome/"
+            fi
+            #Now it's user.js's turn
             if [ -f "$profile/user.js" ]; then
                 if ! grep -q '// Mozilla User Preferences for GTKless' "$profile/user.js"; then
                     bkupcounts=0
