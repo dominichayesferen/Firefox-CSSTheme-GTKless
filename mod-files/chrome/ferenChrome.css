@@ -451,6 +451,15 @@
 
 
 
+    /* Unified Extensions */
+    toolbar .customization-target toolbarbutton:is(toolbarbutton.subviewbutton):not([disabled]):hover,
+    toolbar .customization-target toolbarbutton:is(toolbarbutton.subviewbutton):not([disabled]):hover:active {
+        background-color: transparent !important; /* Intended behaviour by unified-extensions.css:83 (Firefox 109) */
+        box-shadow: none !important; /* Removes the redundant shadow */
+    }
+
+
+
     @supports -moz-bool-pref("userChrome.tab.color_like_toolbar") {
         :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="true"], :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"] {
             background-color: var(--toolbar-bgcolor) !important;
@@ -518,6 +527,9 @@
                 --urlbar-popup-action-color: rgb(91,91,102) !important;
                 --urlbar-popup-url-color: rgb(0,97,224) !important;
                 --warning-icon-bgcolor: #FFA436 !important;
+                /* Extra tweak for palette recolours */
+                --toolbarbutton-hover-background: color-mix(in srgb, currentColor 14%, transparent) !important;
+                --toolbarbutton-active-background: color-mix(in srgb, currentColor 24%, transparent) !important;
             }
         }
 
@@ -576,6 +588,9 @@
                 --urlbar-popup-action-color: rgb(191, 191, 201) !important;
                 --urlbar-popup-url-color: var(--lwt-brighttext-url-color) !important;
                 --warning-icon-bgcolor: #FFBD4F !important;
+                /* Extra tweak for palette recolours */
+                --toolbarbutton-hover-background: color-mix(in srgb, currentColor 20%, transparent) !important;
+                --toolbarbutton-active-background: color-mix(in srgb, currentColor 23%, transparent) !important;
             }
         }
     }
