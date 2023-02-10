@@ -482,9 +482,9 @@
                 --autocomplete-popup-highlight-color: rgb(21, 20, 26) !important;
                 --autocomplete-popup-hover-background: rgb(240, 240, 244) !important;
                 --autocomplete-popup-separator-color: rgb(240, 240, 244) !important;
-                --button-active-bgcolor: rgb(207, 207, 216) !important;
-                --button-bgcolor: rgba(207, 207, 216, 0.33000001311302185) !important;
-                --button-hover-bgcolor: rgba(207, 207, 216, 0.6600000262260437) !important;
+                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
+                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
+                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
                 --button-primary-active-bgcolor: rgb(5, 62, 148) !important;
                 --button-primary-bgcolor: rgb(0, 97, 224) !important;
                 --button-primary-color: rgb(251, 251, 254) !important;
@@ -527,9 +527,6 @@
                 --urlbar-popup-action-color: rgb(91,91,102) !important;
                 --urlbar-popup-url-color: rgb(0,97,224) !important;
                 --warning-icon-bgcolor: #FFA436 !important;
-                /* Extra tweak for palette recolours */
-                --toolbarbutton-hover-background: color-mix(in srgb, currentColor 14%, transparent) !important;
-                --toolbarbutton-active-background: color-mix(in srgb, currentColor 24%, transparent) !important;
             }
         }
 
@@ -543,9 +540,9 @@
                 --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
                 --autocomplete-popup-highlight-color: white !important;
                 --autocomplete-popup-separator-color: rgb(82, 82, 94) !important;
-                --button-active-bgcolor: rgb(91, 91, 102) !important;
-                --button-bgcolor: rgb(43, 42, 51) !important;
-                --button-hover-bgcolor: rgb(82, 82, 94) !important;
+                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
+                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
+                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
                 --button-primary-active-bgcolor: rgb(170, 242, 255) !important;
                 --button-primary-bgcolor: rgb(0, 221, 255) !important;
                 --button-primary-color: rgb(43, 42, 51) !important;
@@ -588,9 +585,6 @@
                 --urlbar-popup-action-color: rgb(191, 191, 201) !important;
                 --urlbar-popup-url-color: var(--lwt-brighttext-url-color) !important;
                 --warning-icon-bgcolor: #FFBD4F !important;
-                /* Extra tweak for palette recolours */
-                --toolbarbutton-hover-background: color-mix(in srgb, currentColor 20%, transparent) !important;
-                --toolbarbutton-active-background: color-mix(in srgb, currentColor 23%, transparent) !important;
             }
         }
     }
