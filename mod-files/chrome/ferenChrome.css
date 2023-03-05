@@ -1,5 +1,20 @@
 /* FIREFOX GTKLESS STYLE CHECK HEADER - DO NOT REMOVE UNLESS YOU WANT TO RETAIN THIS VERSION DURING A GTKLESS-CSS UPDATE */
 
+/* Scrollbars for all pages, and the browser itself */
+@media (prefers-color-scheme: light) { /* Based on about:newtab palette */
+    html,
+    body {
+        scrollbar-color: #15141A #F9F9FB;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    html,
+    body {
+        scrollbar-color: #FBFBFE #2B2A33;
+    }
+}
+
+/* Stuff for the browser */
 @-moz-document url('chrome://browser/content/browser.xhtml') {
 
     /*
@@ -375,6 +390,10 @@
         border: 3px solid background !important;
         border-radius: 5px !important;
     }*/
+    panelview,
+    menupopup {
+        scrollbar-color: var(--arrowpanel-color) var(--arrowpanel-background);
+    }
 
 
     /* Menus */
@@ -468,9 +487,9 @@
     }
 
 
-
+    /* Optional Firefox palettes */
     @supports -moz-bool-pref("gtkless.colors-adwaita") {
-        /* Optional Firefox colours: Adwaita */
+        /* Adwaita */
         /* LIGHT THEME */
         @media (prefers-color-scheme: light) {
             :not(:-moz-lwtheme) {
