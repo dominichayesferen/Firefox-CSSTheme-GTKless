@@ -38,7 +38,7 @@
         border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
     }
 
-    /* Cursed buttons from Firefox */
+    /* Cursed buttons from Firefox - browser.css:364, mostly, Firefox 114 */
     .titlebar-button {
         appearance: none !important;
         border-radius: 100% !important;
@@ -109,6 +109,7 @@
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
             --lwt-tab-text: rgb(21, 20, 26) !important;
             --lwt-text-color: rgba(21, 20, 26) !important;
+            --lwt-brighttext-url-color: #00ddff !important;
             --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
             --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
             --panel-description-color: rgba(21, 20, 26, 0.7) !important;
@@ -124,7 +125,7 @@
             --toolbar-bgimage: none !important;
             --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(0,97,224)) !important;
             --toolbarbutton-icon-fill: rgb(91, 91, 102) !important;
-            --toolbar-color: rgb(21, 20, 26) !important;
+            --toolbar-color: var(--lwt-text-color) !important;
             --toolbar-field-background-color: rgb(240, 240, 244) !important;
             --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
             --toolbar-field-color: rgb(21, 20, 26) !important;
@@ -167,6 +168,7 @@
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
             --lwt-tab-text: rgb(251, 251, 254) !important;
             --lwt-text-color: rgba(251, 251, 254) !important;
+            --lwt-brighttext-url-color: #00ddff !important;
             --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
             --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
             --panel-description-color: rgba(251, 251, 254, 0.7) !important;
@@ -182,7 +184,7 @@
             --toolbar-bgimage: none !important;
             --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(0,221,255)) !important;
             --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
-            --toolbar-color: rgb(251, 251, 254) !important;
+            --toolbar-color: var(--lwt-text-color) !important;
             --toolbar-field-background-color: rgb(28, 27, 34) !important;
             --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
             --toolbar-field-color: rgb(251, 251, 254) !important;
@@ -238,9 +240,6 @@
     #main-window:not(:-moz-lwtheme) {
         color: var(--lwt-text-color);
     }
-    :not(:-moz-lwtheme) {
-        --tab-selected-bgimage: none !important;
-    }
     :not(:-moz-lwtheme) #navigator-toolbox {
         background: var(--lwt-accent-color) !important;
         color: var(--toolbar-color) !important;
@@ -248,86 +247,66 @@
     :not(:-moz-lwtheme) #titlebar {
         color: var(--lwt-text-color) !important;
     }
-    :not(:-moz-lwtheme).tabbrowser-tab {
-    color: inherit !important;
+    .tabbrowser-tab:not(:-moz-lwtheme) { /*tabs.css:542, Firefox 114*/
+        color: inherit !important;
     }
-    :not(:-moz-lwtheme).tabbrowser-tab:is([selected], [multiselected]) {
-    color: var(--lwt-tab-text, var(--toolbar-color)) !important;
+    .tabbrowser-tab:is([selected], [multiselected]):not(:-moz-lwtheme) { /*tabs.css:570, Firefox 114*/
+        color: var(--lwt-tab-text, var(--toolbar-color)) !important;
     }
     @media not (prefers-contrast) {
-        :not(:-moz-lwtheme).tab-background:is([selected], [multiselected]) {
-            border: 1px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor)) !important;
+        #TabsToolbar #firefox-view-button[open]:not(:focus-visible) > .toolbarbutton-icon:-moz-lwtheme,
+        .tab-background[selected]:not([multiselected=true]):not(:-moz-lwtheme) { /*tabs.css:586, Firefox 114*/
+            outline: 1px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor));
+            outline-offset: -1px;
         }
     }
 
     @supports not -moz-bool-pref("userChrome.tab.color_like_toolbar") {
-        :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected=true],
-        :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected=true] {
-            background-attachment: scroll, scroll, fixed !important;
-            background-color: transparent !important;
+        #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon:not(:-moz-lwtheme),
+        #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected=true]:not(:-moz-lwtheme),
+        #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected=true]:not(:-moz-lwtheme) { /*tabs.css:610, Firefox 114*/
+            background-attachment: scroll, scroll, fixed;
+            background-color: transparent;
             background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-                            linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
-                            var(--lwt-header-image, none) !important;
-            background-position: 0 0, 0 0, right top !important;
-            background-repeat: repeat-x, repeat-x, no-repeat !important;
-            background-size: auto 100%, auto 100%, auto auto !important;
+                                linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                                var(--lwt-header-image, none);
+            background-position: 0 0, 0 0, right top;
+            background-repeat: repeat-x, repeat-x, no-repeat;
+            background-size: auto 100%, auto 100%, auto auto;
         }
     }
     :not(:-moz-lwtheme) #TabsToolbar {
-        --attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(42,195,162)) !important;
+        --tab-attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(42,195,162)) !important; /*tabs.css:18, partially, Firefox 114*/
     }
     :not(:-moz-lwtheme) #TabsToolbar[brighttext] {
-        --attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(84,255,189)) !important;
+        --tab-attention-icon-color: var(--lwt-tab-attention-icon-color, rgb(84,255,189)) !important; /*tabs.css:50, partially, Firefox 114*/
     }
-    :not(:-moz-lwtheme) #urlbar {
+    :not(:-moz-lwtheme) #urlbar { /*light-dark-overrides.css:5, Firefox 114*/
         --urlbar-box-bgcolor: var(--toolbar-field-focus-background-color) !important;
         --urlbar-box-focus-bgcolor: var(--button-bgcolor) !important;
         --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor) !important;
     }
 
     :not(:-moz-lwtheme) #customization-container {
-        background-image: var(--toolbar-bgimage), linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)) !important;
+        background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)); /*customizeMode.css:31, Firefox 114*/
     }
 
-    :not(:-moz-lwtheme) .text-link {
+    :not(:-moz-lwtheme) .text-link { /*global-shared.css:152, Firefox 114*/
         color: inherit !important;
         text-decoration: underline !important;
     }
 
-    :not(:-moz-lwtheme) toolbar {
+    :is(toolbar, panel) :is(a, .text-link):not(:-moz-lwtheme) { /*browser-shared.css:158, Firefox 114*/
+        color: #0060df !important;
+    }
+
+    toolbar[brighttext] :is(a, .text-link)):not(:-moz-lwtheme) { /*browser-shared.css:163, Firefox 114*/
+        color: var(--lwt-brighttext-url-color) !important;
+    }
+
+    :not(:-moz-lwtheme) toolbar { /* Disables GTK's toolbar backgrounds */
         appearance: none !important;
         color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme) toolbarbutton:where([checked="true"]) {
-        color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme) toolbarbutton:where(:hover) {
-        color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme) toolbarbutton:where(:hover:active:not([disabled="true"])),
-    :not(:-moz-lwtheme) toolbarbutton:where([open="true"]) {
-        color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme) toolbarbutton:where([disabled="true"]) {
-        color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme) #urlbar,
-    :not(:-moz-lwtheme) #searchbar {
-        color-scheme: light !important;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root:not(:-moz-lwtheme) #urlbar:not([focused="true"]),
-        :root:not(:-moz-lwtheme) #searchbar:not(:focus-within),
-        :root:not(:-moz-lwtheme) #urlbar[focused="true"],
-        :root:not(:-moz-lwtheme) #searchbar:focus-within {
-            color-scheme: dark !important;
-        }
     }
 
     :not(:-moz-lwtheme)::-moz-selection {
@@ -404,43 +383,19 @@
         --panel-border-radius: var(--arrowpanel-border-radius) !important;
         --panel-padding-block: max(var(--arrowpanel-border-radius) - 1px, 0px) !important;
     }
-    menu,
-    menuitem,
-    menucaption {
-        appearance: none !important;
-        -moz-box-align: center;
-        padding: 4px 6px;
-        max-width: 42em;
-        list-style-image: none;
-        -moz-image-region: auto;
 
-        /* Specify our background to avoid triggering reflows on hover. This is an
-        * optimization, as backgrounds don't disable theming on XUL elements, but
-        * also papers over bug 1653832. */
-        background-color: initial;
-    }
-    menubar > menu {
-        padding: var(--toolbarbutton-inner-padding) !important;
-    }
-
-    menuitem[_moz-menuactive="true"],
-    menu[_moz-menuactive="true"] {
-        background-color: none !important;
+    menuitem[_moz-menuactive="true"]:not([disabled="true"]),
+    menupopup menu[_moz-menuactive="true"]:not([disabled="true"]) {
         background-image: none !important;
-        background: var(--button-hover-bgcolor) !important;
-        color: var(--arrowpanel-color) !important;
-    }
-    menubar > menuitem[_moz-menuactive="true"],
-    menubar > menu[_moz-menuactive="true"] {
-        background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
-        color: currentColor !important;
+        background-color: var(--panel-item-hover-bgcolor) !important; /* panelUI-shared.css:1239, Firefox 114 */
+        color: inherit !important;
     }
 
     menu[disabled="true"],
     menuitem[disabled="true"],
-    menucaption[disabled="true"] {
-        background: none !important;
-        color: GrayText !important;
+    menucaption[disabled="true"], {
+        background-color: none !important;
+        color: var(--panel-disabled-color) !important;
     }
 
     menu .menu-right {
@@ -451,21 +406,49 @@
         content: "⯈";
         padding: 0 4px !important;
     }
+
+    menu[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
+    menu[type="radio"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="radio"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="radio"] .menu-iconic-left > .menu-iconic-icon {
+        appearance: none !important; /*checkbox.css:31, Firefox 114*/
+        color: var(--checkbox-border-color) !important;
+        background-color: var(--checkbox-unchecked-bgcolor) !important;
+        border: 1px solid currentColor !important;
+    }
+    menu[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="checkbox"] .menu-iconic-left > .menu-iconic-icon {
+        border-radius: 2px !important; /*checkbox.css:31, Firefox 114*/
+    }
+    menu[type="radio"] .menu-iconic-left > .menu-iconic-icon,
+    menuitem[type="radio"] .menu-iconic-left > .menu-iconic-icon,
+    menucaption[type="radio"] .menu-iconic-left > .menu-iconic-icon {
+        border-radius: 100% !important; /*common-shared.css:814, Firefox 114*/
+    }
+
     menu[checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menuitem[checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menucaption[checked="true"] .menu-iconic-left > .menu-iconic-icon {
-        appearance: none !important;
-        background-color: currentColor !important;
+        border-color: var(--checkbox-checked-border-color, transparent) !important;
+        background-color: var(--checkbox-checked-bgcolor, AccentColor) !important; /*checkbox.css:52, Firefox 114*/
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        -moz-context-properties: fill !important;
+        fill: currentColor !important;
+        color: var(--checkbox-checked-color, AccentColorText) !important;
     }
     menu[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menuitem[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menucaption[type="checkbox"][checked="true"] .menu-iconic-left > .menu-iconic-icon {
-        mask-image: url("chrome://global/skin/icons/check.svg") !important;
+        background-image: url("chrome://global/skin/icons/check.svg") !important;
     }
     menu[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menuitem[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon,
     menucaption[type="radio"][checked="true"] .menu-iconic-left > .menu-iconic-icon {
-        mask-image: url("chrome://global/skin/icons/radio.svg") !important;
+        background-image: url("chrome://global/skin/icons/radio.svg") !important;
     }
 
 
@@ -520,6 +503,7 @@
                 --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
                 --lwt-tab-text: rgb(21, 20, 26) !important;
                 --lwt-text-color: rgba(0, 0, 0, 0.8) !important;
+                --lwt-brighttext-url-color: #00ddff !important;
                 --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
                 --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
                 --panel-description-color: rgba(0, 0, 0, 0.7) !important;
@@ -535,7 +519,7 @@
                 --toolbar-bgimage: none !important;
                 --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
                 --toolbarbutton-icon-fill: rgb(91, 91, 102) !important;
-                --toolbar-color: rgba(0, 0, 0, 0.8) !important;
+                --toolbar-color: var(--lwt-text-color) !important;
                 --toolbar-field-background-color: rgb(255, 255, 255) !important;
                 --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
                 --toolbar-field-color: rgba(0, 0, 0, 0.8) !important;
@@ -578,6 +562,7 @@
                 --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
                 --lwt-tab-text: rgb(251, 251, 254) !important;
                 --lwt-text-color: rgba(255, 255, 255) !important;
+                --lwt-brighttext-url-color: #00ddff !important;
                 --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
                 --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
                 --panel-description-color: rgba(255, 255, 255, 0.7) !important;
@@ -593,7 +578,7 @@
                 --toolbar-bgimage: none !important;
                 --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
                 --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
-                --toolbar-color: rgb(255, 255, 255) !important;
+                --toolbar-color: var(--lwt-text-color) !important;
                 --toolbar-field-background-color: rgb(30, 30, 30) !important;
                 --toolbar-field-border-color: rgb(58, 58, 58) !important;
                 --toolbar-field-color: rgb(255, 255, 255) !important;
