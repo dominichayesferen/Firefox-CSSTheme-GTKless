@@ -398,15 +398,6 @@
         color: var(--panel-disabled-color) !important;
     }
 
-    menu .menu-right {
-        appearance: none !important;
-    }
-    menu .menu-right::before {
-        font-size: 56%;
-        content: "⯈";
-        padding: 0 4px !important;
-    }
-
     menu[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
     menuitem[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
     menucaption[type="checkbox"] .menu-iconic-left > .menu-iconic-icon,
