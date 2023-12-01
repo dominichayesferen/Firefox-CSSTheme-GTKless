@@ -25,7 +25,7 @@
     * Most of this code is taken straight from Mozilla Firefox, and adapted to work in System Theme.
     */
 
-    @supports -moz-bool-pref("gtkless.no-titlebar-spacer") {
+    @media (-moz-bool-pref: "gtkless.no-titlebar-spacer") {
         .titlebar-spacer {
             width: 2px !important;
         }
@@ -33,16 +33,24 @@
 
     /* Temporary fix for border radius not matching properly with Adwaita */
     :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #navigator-toolbox,
-    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop {
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop { /*browser.css:50, Firefox 120*/
         border-top-left-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
         border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+    }
+
+    /* Consistent rounding for rounded window option */
+    @media (-moz-bool-pref: "widget.gtk.rounded-bottom-corners.enabled") { /*browser.css:64, Firefox 120*/
+        body,
+        dialog::backdrop {
+            border-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
+        }
     }
 
     /* Cursed buttons from Firefox - browser.css:364, mostly, Firefox 114 */
     .titlebar-button {
         appearance: none !important;
         border-radius: 100% !important;
-        color: var(--lwt-text-color) !important;
+        color: inherit !important;
     }
     .titlebar-button > .toolbarbutton-icon {
         padding: 6px !important;
@@ -99,7 +107,6 @@
             --button-primary-hover-bgcolor: rgb(2, 80, 187) !important;
             --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
             --chrome-content-separator-color: rgb(204, 204, 204) !important;
-            --error-text-color: rgb(197, 0, 66) !important;
             --focus-outline-color: #0061E0 !important;
             --input-bgcolor: rgb(255, 255, 255) !important;
             --input-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
@@ -107,12 +114,9 @@
             --lwt-accent-color: rgb(240, 240, 244) !important;
             --lwt-selected-tab-background-color: rgb(255, 255, 255) !important;
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-            --lwt-tab-text: rgb(21, 20, 26) !important;
             --lwt-text-color: rgba(21, 20, 26) !important;
-            --lwt-brighttext-url-color: #00ddff !important;
             --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
             --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
-            --panel-description-color: rgba(21, 20, 26, 0.7) !important;
             --panel-disabled-color: rgba(21, 20, 26, 0.5) !important;
             --panel-item-active-bgcolor: color-mix(in srgb, currentColor 27%, transparent) !important;
             --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 12%, transparent) !important;
@@ -132,9 +136,6 @@
             --toolbar-field-focus-background-color: rgba(255, 255, 255, 1) !important;
             --toolbar-field-focus-color: rgb(21, 20, 26) !important;
             --urlbar-icon-fill-opacity: 0.72 !important;
-            --urlbar-popup-action-color: rgb(91, 91, 102) !important;
-            --urlbar-popup-action-color: rgb(91,91,102) !important;
-            --urlbar-popup-url-color: rgb(0,97,224) !important;
             --warning-icon-bgcolor: #FFA436 !important;
         }
     }
@@ -158,7 +159,6 @@
             --button-primary-hover-bgcolor: rgb(128, 235, 255) !important;
             --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
             --chrome-content-separator-color: rgb(12, 12, 13) !important;
-            --error-text-color: rgb(255, 154, 162) !important;
             --focus-outline-color: #00DDFF !important;
             --input-bgcolor: rgb(66, 65, 77) !important;
             --input-border-color: rgb(143, 143, 157) !important;
@@ -166,12 +166,9 @@
             --lwt-accent-color: rgb(28, 27, 34) !important;
             --lwt-selected-tab-background-color: rgb(66, 65, 77) !important;
             --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-            --lwt-tab-text: rgb(251, 251, 254) !important;
             --lwt-text-color: rgba(251, 251, 254) !important;
-            --lwt-brighttext-url-color: #00ddff !important;
             --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
             --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
-            --panel-description-color: rgba(251, 251, 254, 0.7) !important;
             --panel-disabled-color: rgba(251, 251, 254, 0.5) !important;
             --panel-item-active-bgcolor: color-mix(in srgb, currentColor 25%, transparent) !important;
             --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
@@ -191,9 +188,6 @@
             --toolbar-field-focus-background-color: rgba(66, 65, 77, 1) !important;
             --toolbar-field-focus-color: rgb(251, 251, 254) !important;
             --urlbar-icon-fill-opacity: 1 !important;
-            --urlbar-popup-action-color: #30e60b !important;
-            --urlbar-popup-action-color: rgb(191, 191, 201) !important;
-            --urlbar-popup-url-color: var(--lwt-brighttext-url-color) !important;
             --warning-icon-bgcolor: #FFBD4F !important;
         }
     }
@@ -237,15 +231,23 @@
     }
 
     /* Standard Default Firefox appearance */
-    #main-window:not(:-moz-lwtheme) {
-        color: var(--lwt-text-color);
+    :root:not(:-moz-lwtheme) { /*browser-shared.css:104, Firefox 120*/
+        --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+        --link-color: light-dark(rgb(0, 97, 224), rgb(0, 221, 255)) !important;
+        --chrome-content-separator-color: rgba(0,0,0,.3) !important;
+
+        color: var(--lwt-text-color) !important; /*TITLEBAR AREA*/
     }
-    :not(:-moz-lwtheme) #navigator-toolbox {
+    :not(:-moz-lwtheme) #navigator-toolbox { /*browser-shared.css:174, Firefox 120*/ /*TITLEBAR AREA, toolbar is managed by *browser.css:75, Firefox 120**/
         background: var(--lwt-accent-color) !important;
-        color: var(--toolbar-color) !important;
-    }
-    :not(:-moz-lwtheme) #titlebar {
-        color: var(--lwt-text-color) !important;
+        color: inherit !important;
+
+        &:-moz-window-inactive {
+            background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;
+            :root[tabsintitlebar] & {
+                color: color-mix(in srgb, currentColor 60%, transparent) !important;
+            }
+        }
     }
     .tabbrowser-tab:not(:-moz-lwtheme) { /*tabs.css:542, Firefox 114*/
         color: inherit !important;
@@ -256,8 +258,8 @@
     @media not (prefers-contrast) {
         #TabsToolbar #firefox-view-button[open]:not(:focus-visible) > .toolbarbutton-icon:-moz-lwtheme,
         .tab-background[selected]:not([multiselected=true]):not(:-moz-lwtheme) { /*tabs.css:586, Firefox 114*/
-            outline: 1px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor));
-            outline-offset: -1px;
+            outline: 1px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor)) !important;
+            outline-offset: -1px !important;
         }
     }
 
@@ -265,14 +267,14 @@
         #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon:not(:-moz-lwtheme),
         #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected=true]:not(:-moz-lwtheme),
         #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected=true]:not(:-moz-lwtheme) { /*tabs.css:610, Firefox 114*/
-            background-attachment: scroll, scroll, fixed;
-            background-color: transparent;
+            background-attachment: scroll, scroll, fixed !important;
+            background-color: transparent !important;
             background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
                                 linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
-                                var(--lwt-header-image, none);
-            background-position: 0 0, 0 0, right top;
-            background-repeat: repeat-x, repeat-x, no-repeat;
-            background-size: auto 100%, auto 100%, auto auto;
+                                var(--lwt-header-image, none) !important;
+            background-position: 0 0, 0 0, right top !important;
+            background-repeat: repeat-x, repeat-x, no-repeat !important;
+            background-size: auto 100%, auto 100%, auto auto !important;
         }
     }
     :not(:-moz-lwtheme) #TabsToolbar {
@@ -304,7 +306,7 @@
         color: var(--lwt-brighttext-url-color) !important;
     }
 
-    :not(:-moz-lwtheme) toolbar { /* Disables GTK's toolbar backgrounds */
+    :not(:-moz-lwtheme) .browser-toolbar.titlebar-color { /* Disables GTK's toolbar backgrounds */
         appearance: none !important;
         color: inherit !important;
     }
@@ -453,7 +455,7 @@
 
 
 
-    @supports -moz-bool-pref("userChrome.tab.color_like_toolbar") {
+    @media (-moz-bool-pref: "userChrome.tab.color_like_toolbar") {
         :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="true"], :not(:-moz-lwtheme) #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"] {
             background-color: var(--toolbar-bgcolor) !important;
             background-image: var(--toolbar-bgimage), none !important;
@@ -462,7 +464,7 @@
 
 
     /* Optional Firefox palettes */
-    @supports -moz-bool-pref("gtkless.colors-adwaita") {
+    @media (-moz-bool-pref: "gtkless.colors-adwaita") {
         /* Adwaita */
         /* LIGHT THEME */
         @media (prefers-color-scheme: light) {
@@ -484,7 +486,6 @@
                 --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
                 --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
                 --chrome-content-separator-color: rgb(204, 204, 204) !important;
-                --error-text-color: rgb(197, 0, 66) !important;
                 --focus-outline-color: #3584E4 !important;
                 --input-bgcolor: rgb(255, 255, 255) !important;
                 --input-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
@@ -492,12 +493,9 @@
                 --lwt-accent-color: rgb(235, 235, 235) !important;
                 --lwt-selected-tab-background-color: rgb(250, 250, 250) !important;
                 --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-                --lwt-tab-text: rgb(21, 20, 26) !important;
                 --lwt-text-color: rgba(0, 0, 0, 0.8) !important;
-                --lwt-brighttext-url-color: #00ddff !important;
                 --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
                 --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
-                --panel-description-color: rgba(0, 0, 0, 0.7) !important;
                 --panel-disabled-color: rgba(0, 0, 0, 0.5) !important;
                 --panel-item-active-bgcolor: color-mix(in srgb, currentColor 27%, transparent) !important;
                 --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 12%, transparent) !important;
@@ -517,9 +515,6 @@
                 --toolbar-field-focus-background-color: rgba(255, 255, 255, 1) !important;
                 --toolbar-field-focus-color: rgba(0, 0, 0, 0.8) !important;
                 --urlbar-icon-fill-opacity: 0.72 !important;
-                --urlbar-popup-action-color: rgb(91, 91, 102) !important;
-                --urlbar-popup-action-color: rgb(91,91,102) !important;
-                --urlbar-popup-url-color: rgb(53,132,228) !important;
                 --warning-icon-bgcolor: #FFA436 !important;
             }
         }
@@ -543,7 +538,6 @@
                 --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
                 --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
                 --chrome-content-separator-color: rgb(12, 12, 13) !important;
-                --error-text-color: rgb(255, 154, 162) !important;
                 --focus-outline-color: #3584E4 !important;
                 --input-bgcolor: rgb(66, 65, 77) !important;
                 --input-border-color: rgb(143, 143, 157) !important;
@@ -551,12 +545,9 @@
                 --lwt-accent-color: rgb(48, 48, 48) !important;
                 --lwt-selected-tab-background-color: rgb(36, 36, 36) !important;
                 --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-                --lwt-tab-text: rgb(251, 251, 254) !important;
                 --lwt-text-color: rgba(255, 255, 255) !important;
-                --lwt-brighttext-url-color: #00ddff !important;
                 --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
                 --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
-                --panel-description-color: rgba(255, 255, 255, 0.7) !important;
                 --panel-disabled-color: rgba(255, 255, 255, 0.5) !important;
                 --panel-item-active-bgcolor: color-mix(in srgb, currentColor 25%, transparent) !important;
                 --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
@@ -576,10 +567,67 @@
                 --toolbar-field-focus-background-color: rgba(30, 30, 30, 1) !important;
                 --toolbar-field-focus-color: rgb(255, 255, 255) !important;
                 --urlbar-icon-fill-opacity: 1 !important;
-                --urlbar-popup-action-color: #30e60b !important;
-                --urlbar-popup-action-color: rgb(191, 191, 201) !important;
-                --urlbar-popup-url-color: rgb(53,132,228) !important;
                 --warning-icon-bgcolor: #FFBD4F !important;
+            }
+        }
+    }
+    @media (-moz-bool-pref: "gtkless.use-gtk-colors") {
+        /* System colours */
+        :not(:-moz-lwtheme) {
+            --lwt-accent-color: ActiveCaption !important;
+            --lwt-accent-color-inactive: InactiveCaption !important;
+            --lwt-text-color: CaptionText !important;
+            --toolbar-bgcolor: color-mix(in srgb, -moz-dialog 85%, white) !important; /*browser.css:17, Firefox 120*/
+            --toolbar-color: -moz-dialogtext !important; /*browser.css:17, Firefox 120*/
+            --chrome-content-separator-color: ThreeDShadow !important;
+            --toolbar-field-background-color: Field !important; /*global-shared.css:16, Firefox 120*/
+            /*--toolbar-field-border-color: ThreeDShadow !important; global-shared.css:16, Firefox 120*/
+            --toolbar-field-color: FieldText !important; /*global-shared.css:16, Firefox 120*/
+            --toolbar-field-focus-background-color: Field !important; /*global-shared.css:16, Firefox 120*/
+            --toolbar-field-focus-color: FieldText !important; /*global-shared.css:16, Firefox 120*/
+            --arrowpanel-background: Field !important; /*global-shared.css:16, Firefox 120*/
+            --arrowpanel-border-color: ThreeDShadow !important; /*global-shared.css:16, Firefox 120*/
+            --arrowpanel-color: FieldText !important; /*global-shared.css:16, Firefox 120*/
+            --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 30%, transparent) !important; /*global-shared.css:16, Firefox 120*/
+            --panel-disabled-color: color-mix(in srgb, currentColor 40%, transparent) !important; /*global-shared.css:16, Firefox 120*/
+            --autocomplete-popup-highlight-background: SelectedItem !important; /*urlbarView.css:9, Firefox 120*/
+            --autocomplete-popup-highlight-color: SelectedItemText !important; /*urlbarView.css:9, Firefox 120*/
+            --autocomplete-popup-hover-background: var(--arrowpanel-dimmed) !important; /*browser-shared.css:29, Firefox 120*/
+            --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 14%, transparent) !important; /*browser-shared.css:29, Firefox 120*/
+            --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important; /*browser-shared.css:29, Firefox 120*/
+            --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important; /*browser-shared.css:29, Firefox 120*/
+            --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important; /*browser-shared.css:29, Firefox 120*/
+            --button-primary-active-bgcolor: color-mix(in srgb, black 20%, AccentColor) !important; /*browser-shared.css:29, Firefox 120*/
+            --button-primary-bgcolor: AccentColor !important; /*browser-shared.css:29, Firefox 120*/
+            --button-primary-color: AccentColorText !important; /*browser-shared.css:29, Firefox 120*/
+            --button-primary-hover-bgcolor: color-mix(in srgb, black 10%, AccentColor) !important; /*browser-shared.css:29, Firefox 120*/
+            --checkbox-border-color: ThreeDShadow !important; /*checkbox.css:31, Firefox 120*/
+            --focus-outline-color: var(--color-accent-primary) !important; /*tokens-shared.css:5, Firefox 120*/
+            --input-bgcolor: Field !important; /*browser-shared.css:837, Firefox 120*/
+            --input-border-color: ThreeDShadow !important; /*browser-shared.css:835, Firefox 120*/
+            --input-color: FieldText !important; /*browser-shared.css:838, Firefox 120*/
+            --lwt-selected-tab-background-color: transparent !important; /*tabs.css:490, Firefox 120*/
+            /*--lwt-tabs-border-color: currentColor !important; tabs.css:465, Firefox 120*/
+            --panel-banner-item-info-icon-bgcolor: #0090ED !important; /*panelUI-shared.css:5, Firefox 120*/
+            --panel-banner-item-update-supported-bgcolor: #2AC3A2 !important; /*panelUI-shared.css:5, Firefox 120*/
+            --panel-disabled-color: mix(in srgb, currentColor 40%, transparent) !important; /*global-shared.css:18, Firefox 120*/
+            --panel-item-active-bgcolor: var(--button-active-bgcolor) !important; /*panelUI-shared.css:5, Firefox 120*/
+            --panel-item-hover-bgcolor: var(--button-hover-bgcolor) !important; /*panelUI-shared.css:5, Firefox 120*/
+            --panel-separator-color: color-mix(in srgb, currentColor 25%, transparent) !important; /*global-shared.css:18, Firefox 120*/
+            --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important; /*panelUI-shared.css:37, Firefox 120*/
+            --tab-icon-overlay-fill: light-dark(black, white) !important; /*tabs.css:337, Firefox 120*/
+            --tab-icon-overlay-stroke: light-dark(white, black) !important; /*tabs.css:338, Firefox 120*/
+            --tabpanel-background-color: #F9F9FB !important; /*tabs.css:7, Firefox 120*/
+            --toolbarbutton-icon-fill-attention: AccentColor !important; /*toolbarbutton-icons.css:7, Firefox 120*/
+            --toolbarbutton-icon-fill: currentColor !important; /*global-shared.css:18, Firefox 120*/
+            --urlbar-icon-fill-opacity: 0.9 !important; /*browser-shared.css:29, Firefox 120*/
+            --warning-icon-bgcolor: light-dark(#FFA436, #FFBD4F) !important; /*toolbarbutton-icons.css:7, Firefox 120*/
+        }
+        :not(:-moz-lwtheme) #navigator-toolbox {
+            &:-moz-window-inactive {
+                :root[tabsintitlebar] & {
+                    color: InactiveCaptionText !important;
+                }
             }
         }
     }

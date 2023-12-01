@@ -56,6 +56,7 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 Here are options that can be set via about:config to further improve the experience while this CSS mod is installed (restart Firefox after applying them for changes to take effect):
 
 - `gtkless.no-titlebar-spacer`: Gets rid of the functionless space on the left of the tabs in titlebars
+- `gtkless.use-gtk-colors`: Changes colours to be based on your GTK3 stylesheet instead
 - `gtkless.colors-adwaita`: Changes colours to be based on LibAdwaita instead
 
 <h1>Notes</h1>
