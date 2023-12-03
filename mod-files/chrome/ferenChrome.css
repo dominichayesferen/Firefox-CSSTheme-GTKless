@@ -265,8 +265,7 @@
 
     @supports not -moz-bool-pref("userChrome.tab.color_like_toolbar") {
         #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon:not(:-moz-lwtheme),
-        #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected=true]:not(:-moz-lwtheme),
-        #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected=true]:not(:-moz-lwtheme) { /*tabs.css:610, Firefox 114*/
+        #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background:is([selected], [multiselected]):not(:-moz-lwtheme) { /*tabs.css:486, Firefox 120*/
             background-attachment: scroll, scroll, fixed !important;
             background-color: transparent !important;
             background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
