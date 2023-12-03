@@ -292,27 +292,9 @@
         background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)); /*customizeMode.css:31, Firefox 114*/
     }
 
-    :not(:-moz-lwtheme) .text-link { /*global-shared.css:152, Firefox 114*/
-        color: inherit !important;
-        text-decoration: underline !important;
-    }
-
-    :is(toolbar, panel) :is(a, .text-link):not(:-moz-lwtheme) { /*browser-shared.css:158, Firefox 114*/
-        color: #0060df !important;
-    }
-
-    toolbar[brighttext] :is(a, .text-link)):not(:-moz-lwtheme) { /*browser-shared.css:163, Firefox 114*/
-        color: var(--lwt-brighttext-url-color) !important;
-    }
-
     :not(:-moz-lwtheme) .browser-toolbar.titlebar-color { /* Disables GTK's toolbar backgrounds */
         appearance: none !important;
         color: inherit !important;
-    }
-
-    :not(:-moz-lwtheme)::-moz-selection {
-        background: var(--button-primary-bgcolor) !important;
-        color: var(--button-primary-color) !important;
     }
 
     /* Stupid to unhardcode buttons */
