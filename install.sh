@@ -68,6 +68,9 @@ for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/fire
                 if grep -q 'ferenChrome.css' "$profile/chrome/userChrome.css"; then
                     sed -i 's/ferenChrome.css/GTKless.css/g' "$profile/chrome/userChrome.css"
                 fi
+                if grep -q 'ferenChrome.css' "$profile/chrome/userContent.css"; then
+                    sed -i 's/ferenChrome.css/GTKless.css/g' "$profile/chrome/userContent.css"
+                fi
                 cp -f "$DIR/mod-files/chrome/GTKless.css" "$profile/chrome/"
             fi
             #Now it's user.js's turn
