@@ -31,21 +31,6 @@
         }
     }
 
-    /* Temporary fix for border radius not matching properly with Adwaita */
-    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #navigator-toolbox,
-    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) ::backdrop { /*browser.css:50, Firefox 120*/
-        border-top-left-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
-        border-top-right-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
-    }
-
-    /* Consistent rounding for rounded window option */
-    @media (-moz-bool-pref: "widget.gtk.rounded-bottom-corners.enabled") { /*browser.css:64, Firefox 120*/
-        body,
-        dialog::backdrop {
-            border-radius: calc(env(-moz-gtk-csd-titlebar-radius) - 2px) !important;
-        }
-    }
-
     /* Cursed buttons from Firefox - browser.css:364, mostly, Firefox 114 */
     .titlebar-button {
         appearance: none !important;
@@ -238,7 +223,7 @@
 
         color: var(--lwt-text-color) !important; /*TITLEBAR AREA*/
     }
-    :not(:-moz-lwtheme) #navigator-toolbox { /*browser-shared.css:174, Firefox 120*/ /*TITLEBAR AREA, toolbar is managed by *browser.css:75, Firefox 120**/
+    :not(:-moz-lwtheme) #navigator-toolbox { /*browser-shared.css:174, Firefox 120*/ /* TITLEBAR AREA, toolbar is managed by *browser.css:75, Firefox 120* */
         background: var(--lwt-accent-color) !important;
         color: inherit !important;
 

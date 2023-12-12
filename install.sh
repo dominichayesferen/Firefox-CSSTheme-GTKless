@@ -45,15 +45,18 @@ for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/fire
         for profile in *; do if [ -f "$profile/prefs.js" ]; then
             echo "Detected profile: $directory/$profile, installing Firefox GTKless to this profile..."
             if [ -d "$profile/chrome" ]; then
-                if ! grep -q '/* FIREFOX GTKLESS STYLE CHECK HEADER -' "$profile/chrome/ferenChrome.css"; then
+                if ! grep -q '/* FIREFOX GTKLESS STYLE CHECK HEADER -' "$profile/chrome/GTKless.css" && ! grep -q '/* FIREFOX GTKLESS STYLE CHECK HEADER -' "$profile/chrome/ferenChrome.css"; then
                     bkupcounts=0
                     while [ -d "$profile/chrome.bak""$bkupcounts" ]; do
                         bkupcounts=$(($bkupcounts+1))
                     done
                     mv -f "$profile/chrome" "$profile/chrome.bak""$bkupcounts"
                     echo "Backed up your old userChrome folder to chrome.bak""$bkupcounts."
-                else #Delete old ferenChrome, but leave userChrome.css intact, if it's just an installation of GTKless
-                    rm -f "$profile/chrome/ferenChrome.css"
+                else #Delete old GTKless, but leave userChrome.css intact, if it's just an installation of GTKless
+                    if [ -f "$profile/chrome/ferenChrome.css" ]; then
+                        rm -f "$profile/chrome/ferenChrome.css"
+                    fi
+                    rm -f "$profile/chrome/GTKless.css"
                 fi
             fi
             if [ ! -d "$profile/chrome" ]; then #On new installs, remake the chrome folder...
@@ -62,7 +65,10 @@ for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/fire
             if [ ! -f "$profile/chrome/userChrome.css" ]; then #...and copy everything over.
                 cp -Rf "$DIR/mod-files/chrome/"* "$profile/chrome/"
             else #If GTKless is already installed, only replace GTKless's CSS
-                cp -f "$DIR/mod-files/chrome/ferenChrome.css" "$profile/chrome/"
+                if grep -q 'ferenChrome.css' "$profile/chrome/userChrome.css"; then
+                    sed -i 's/ferenChrome.css/GTKless.css/g' "$profile/chrome/userChrome.css"
+                fi
+                cp -f "$DIR/mod-files/chrome/GTKless.css" "$profile/chrome/"
             fi
             #Now it's user.js's turn
             if [ -f "$profile/user.js" ]; then
