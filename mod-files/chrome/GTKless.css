@@ -124,7 +124,6 @@
             --warning-icon-bgcolor: #FFA436 !important;
         }
     }
-
     /* DARK THEME */
     @media (prefers-color-scheme: dark) {
         :not(:-moz-lwtheme) {
@@ -430,115 +429,15 @@
 
 
     /* Optional Firefox palettes */
-    @media (-moz-bool-pref: "gtkless.colors-adwaita") {
-        /* Adwaita */
-        /* LIGHT THEME */
-        @media (prefers-color-scheme: light) {
-            :not(:-moz-lwtheme) {
-                --arrowpanel-background: rgb(255, 255, 255) !important;
-                --arrowpanel-border-color: rgb(240, 240, 244) !important;
-                --arrowpanel-color: rgba(0, 0, 0, 0.8) !important;
-                --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 20%, transparent) !important;
-                --autocomplete-popup-highlight-background: rgb(224, 224, 230) !important;
-                --autocomplete-popup-highlight-color: rgb(21, 20, 26) !important;
-                --autocomplete-popup-hover-background: rgb(240, 240, 244) !important;
-                --autocomplete-popup-separator-color: rgb(240, 240, 244) !important;
-                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
-                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
-                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
-                --button-primary-active-bgcolor: rgb(42, 106, 182) !important;
-                --button-primary-bgcolor: rgb(53, 132, 228) !important;
-                --button-primary-color: rgb(255, 255, 255) !important;
-                --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
-                --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
-                --chrome-content-separator-color: rgb(204, 204, 204) !important;
-                --focus-outline-color: #3584E4 !important;
-                --input-bgcolor: rgb(255, 255, 255) !important;
-                --input-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
-                --input-color: rgb(21, 20, 26) !important;
-                --lwt-accent-color: rgb(235, 235, 235) !important;
-                --lwt-selected-tab-background-color: rgb(250, 250, 250) !important;
-                --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-                --lwt-text-color: rgba(0, 0, 0, 0.8) !important;
-                --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
-                --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
-                --panel-disabled-color: rgba(0, 0, 0, 0.5) !important;
-                --panel-item-active-bgcolor: color-mix(in srgb, currentColor 27%, transparent) !important;
-                --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 12%, transparent) !important;
-                --panel-separator-color: hsla(210,4%,10%,.14) !important;
-                --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
-                --tab-icon-overlay-fill: rgb(91, 91, 102) !important;
-                --tab-icon-overlay-stroke: rgb(255, 255, 255) !important;
-                --tabpanel-background-color: rgb(249, 249, 251) !important;
-                --toolbar-bgcolor: rgb(250, 250, 250) !important;
-                --toolbar-bgimage: none !important;
-                --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
-                --toolbarbutton-icon-fill: rgb(91, 91, 102) !important;
-                --toolbar-color: var(--lwt-text-color) !important;
-                --toolbar-field-background-color: rgb(255, 255, 255) !important;
-                --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
-                --toolbar-field-color: rgba(0, 0, 0, 0.8) !important;
-                --toolbar-field-focus-background-color: rgba(255, 255, 255, 1) !important;
-                --toolbar-field-focus-color: rgba(0, 0, 0, 0.8) !important;
-                --urlbar-icon-fill-opacity: 0.72 !important;
-                --warning-icon-bgcolor: #FFA436 !important;
-            }
-        }
-
-        /* DARK THEME */
-        @media (prefers-color-scheme: dark) {
-            :not(:-moz-lwtheme) {
-                --arrowpanel-background: rgb(56, 56, 56) !important;
-                --arrowpanel-border-color: rgb(82, 82, 94) !important;
-                --arrowpanel-color: rgba(255, 255, 255, 1) !important;
-                --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 14%, transparent) !important;
-                --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
-                --autocomplete-popup-highlight-color: white !important;
-                --autocomplete-popup-separator-color: rgb(82, 82, 94) !important;
-                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
-                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
-                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
-                --button-primary-active-bgcolor: rgb(42, 106, 182) !important;
-                --button-primary-bgcolor: rgb(53, 132, 228) !important;
-                --button-primary-color: rgb(255, 255, 255) !important;
-                --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
-                --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
-                --chrome-content-separator-color: rgb(12, 12, 13) !important;
-                --focus-outline-color: #3584E4 !important;
-                --input-bgcolor: rgb(66, 65, 77) !important;
-                --input-border-color: rgb(143, 143, 157) !important;
-                --input-color: rgb(251, 251, 254) !important;
-                --lwt-accent-color: rgb(48, 48, 48) !important;
-                --lwt-selected-tab-background-color: rgb(36, 36, 36) !important;
-                --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
-                --lwt-text-color: rgba(255, 255, 255) !important;
-                --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
-                --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
-                --panel-disabled-color: rgba(255, 255, 255, 0.5) !important;
-                --panel-item-active-bgcolor: color-mix(in srgb, currentColor 25%, transparent) !important;
-                --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
-                --panel-separator-color: rgba(249,249,250,.1) !important;
-                --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
-                --tab-icon-overlay-fill: rgb(251, 251, 254) !important;
-                --tab-icon-overlay-stroke: rgb(66, 65, 77) !important;
-                --tabpanel-background-color: rgb(43, 42, 51) !important;
-                --toolbar-bgcolor: rgb(36, 36, 36) !important;
-                --toolbar-bgimage: none !important;
-                --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
-                --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
-                --toolbar-color: var(--lwt-text-color) !important;
-                --toolbar-field-background-color: rgb(30, 30, 30) !important;
-                --toolbar-field-border-color: rgb(58, 58, 58) !important;
-                --toolbar-field-color: rgb(255, 255, 255) !important;
-                --toolbar-field-focus-background-color: rgba(30, 30, 30, 1) !important;
-                --toolbar-field-focus-color: rgb(255, 255, 255) !important;
-                --urlbar-icon-fill-opacity: 1 !important;
-                --warning-icon-bgcolor: #FFBD4F !important;
-            }
-        }
-    }
     @media (-moz-bool-pref: "gtkless.use-gtk-colors") {
         /* System colours */
+        :not(:-moz-lwtheme) #navigator-toolbox {
+            &:-moz-window-inactive {
+                :root[tabsintitlebar] & {
+                    color: InactiveCaptionText !important;
+                }
+            }
+        }
         :not(:-moz-lwtheme) {
             --lwt-accent-color: ActiveCaption !important;
             --lwt-accent-color-inactive: InactiveCaption !important;
@@ -589,11 +488,119 @@
             --urlbar-icon-fill-opacity: 0.9 !important; /*browser-shared.css:29, Firefox 120*/
             --warning-icon-bgcolor: light-dark(#FFA436, #FFBD4F) !important; /*toolbarbutton-icons.css:7, Firefox 120*/
         }
-        :not(:-moz-lwtheme) #navigator-toolbox {
-            &:-moz-window-inactive {
-                :root[tabsintitlebar] & {
-                    color: InactiveCaptionText !important;
-                }
+    }
+    @media (-moz-bool-pref: "gtkless.colors-adwaita") {
+        /* Adwaita */
+        :not(:-moz-lwtheme) #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+        :not(:-moz-lwtheme) #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+            box-shadow: none !important; /* tabs.css:449, Firefox 121 */
+        }
+        :not(:-moz-lwtheme) #nav-bar:not([tabs-hidden="true"]) {
+            box-shadow: 0 calc(-1 * var(--tabs-navbar-shadow-size)) 0 var(--gtkless-navbar-shadow) !important; /* browser.css:82, Firefox 121 */
+        }
+        /* LIGHT THEME */
+        @media (prefers-color-scheme: light) {
+            :not(:-moz-lwtheme) {
+                --gtkless-navbar-shadow: rgba(0, 0, 0, 0.12) !important;
+                --arrowpanel-background: rgb(255, 255, 255) !important;
+                --arrowpanel-border-color: rgb(240, 240, 244) !important;
+                --arrowpanel-color: rgba(0, 0, 0, 0.8) !important;
+                --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 20%, transparent) !important;
+                --autocomplete-popup-highlight-background: rgb(224, 224, 230) !important;
+                --autocomplete-popup-highlight-color: rgb(21, 20, 26) !important;
+                --autocomplete-popup-hover-background: rgb(240, 240, 244) !important;
+                --autocomplete-popup-separator-color: rgb(240, 240, 244) !important;
+                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
+                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
+                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
+                --button-primary-active-bgcolor: rgb(42, 106, 182) !important;
+                --button-primary-bgcolor: rgb(53, 132, 228) !important;
+                --button-primary-color: rgb(255, 255, 255) !important;
+                --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
+                --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+                --chrome-content-separator-color: rgb(204, 204, 204) !important;
+                --focus-outline-color: #3584E4 !important;
+                --input-bgcolor: rgb(255, 255, 255) !important;
+                --input-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+                --input-color: rgb(21, 20, 26) !important;
+                --lwt-accent-color: #ffffff !important;
+                --lwt-selected-tab-background-color: color-mix(in srgb, currentColor 8%, transparent) !important;
+                --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
+                --lwt-text-color: rgba(0, 0, 0, 0.8) !important;
+                --panel-banner-item-info-icon-bgcolor: rgb(0, 144, 237) !important;
+                --panel-banner-item-update-supported-bgcolor: rgb(42, 195, 162) !important;
+                --panel-disabled-color: rgba(0, 0, 0, 0.5) !important;
+                --panel-item-active-bgcolor: color-mix(in srgb, currentColor 27%, transparent) !important;
+                --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 12%, transparent) !important;
+                --panel-separator-color: hsla(210,4%,10%,.14) !important;
+                --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+                --tab-icon-overlay-fill: rgb(91, 91, 102) !important;
+                --tab-icon-overlay-stroke: rgb(255, 255, 255) !important;
+                --tabpanel-background-color: rgb(249, 249, 251) !important;
+                --toolbar-bgcolor: rgb(250, 250, 250) !important;
+                --toolbar-bgimage: none !important;
+                --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
+                --toolbarbutton-icon-fill: rgb(91, 91, 102) !important;
+                --toolbar-color: var(--lwt-text-color) !important;
+                --toolbar-field-background-color: rgb(255, 255, 255) !important;
+                --toolbar-field-border-color: rgba(0, 0, 0, 0) !important;
+                --toolbar-field-color: rgba(0, 0, 0, 0.8) !important;
+                --toolbar-field-focus-background-color: rgba(255, 255, 255, 1) !important;
+                --toolbar-field-focus-color: rgba(0, 0, 0, 0.8) !important;
+                --urlbar-icon-fill-opacity: 0.72 !important;
+                --warning-icon-bgcolor: #FFA436 !important;
+            }
+        }
+        /* DARK THEME */
+        @media (prefers-color-scheme: dark) {
+            :not(:-moz-lwtheme) {
+                --gtkless-navbar-shadow: rgba(0, 0, 0, 0.9) !important;
+                --arrowpanel-background: rgb(56, 56, 56) !important;
+                --arrowpanel-border-color: rgb(82, 82, 94) !important;
+                --arrowpanel-color: rgba(255, 255, 255, 1) !important;
+                --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 14%, transparent) !important;
+                --autocomplete-popup-highlight-background: rgb(43, 42, 51) !important;
+                --autocomplete-popup-highlight-color: white !important;
+                --autocomplete-popup-separator-color: rgb(82, 82, 94) !important;
+                --button-active-bgcolor: color-mix(in srgb, currentColor 30%, transparent) !important;
+                --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
+                --button-hover-bgcolor: color-mix(in srgb, currentColor 17%, transparent) !important;
+                --button-primary-active-bgcolor: rgb(42, 106, 182) !important;
+                --button-primary-bgcolor: rgb(53, 132, 228) !important;
+                --button-primary-color: rgb(255, 255, 255) !important;
+                --button-primary-hover-bgcolor: rgb(73, 144, 231) !important;
+                --checkbox-border-color: color-mix(in srgb, currentColor 41%, transparent) !important;
+                --chrome-content-separator-color: rgb(12, 12, 13) !important;
+                --focus-outline-color: #3584E4 !important;
+                --input-bgcolor: rgb(66, 65, 77) !important;
+                --input-border-color: rgb(143, 143, 157) !important;
+                --input-color: rgb(251, 251, 254) !important;
+                --lwt-accent-color: #303030 !important;
+                --lwt-selected-tab-background-color: #444444 !important;
+                --lwt-tabs-border-color: rgba(0, 0, 0, 0) !important;
+                --lwt-text-color: rgba(255, 255, 255) !important;
+                --panel-banner-item-info-icon-bgcolor: rgb(128, 235, 255) !important;
+                --panel-banner-item-update-supported-bgcolor: rgb(84, 255, 189) !important;
+                --panel-disabled-color: rgba(255, 255, 255, 0.5) !important;
+                --panel-item-active-bgcolor: color-mix(in srgb, currentColor 25%, transparent) !important;
+                --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
+                --panel-separator-color: rgba(249,249,250,.1) !important;
+                --panel-separator-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+                --tab-icon-overlay-fill: rgb(251, 251, 254) !important;
+                --tab-icon-overlay-stroke: rgb(66, 65, 77) !important;
+                --tabpanel-background-color: rgb(43, 42, 51) !important;
+                --toolbar-bgcolor: rgb(36, 36, 36) !important;
+                --toolbar-bgimage: none !important;
+                --toolbarbutton-icon-fill-attention: var(--lwt-toolbarbutton-icon-fill-attention, rgb(53,132,228)) !important;
+                --toolbarbutton-icon-fill: rgb(251, 251, 254) !important;
+                --toolbar-color: var(--lwt-text-color) !important;
+                --toolbar-field-background-color: rgb(30, 30, 30) !important;
+                --toolbar-field-border-color: rgb(58, 58, 58) !important;
+                --toolbar-field-color: rgb(255, 255, 255) !important;
+                --toolbar-field-focus-background-color: rgba(30, 30, 30, 1) !important;
+                --toolbar-field-focus-color: rgb(255, 255, 255) !important;
+                --urlbar-icon-fill-opacity: 1 !important;
+                --warning-icon-bgcolor: #FFBD4F !important;
             }
         }
     }
