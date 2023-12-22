@@ -122,6 +122,7 @@
             --toolbar-field-focus-color: rgb(21, 20, 26) !important;
             --urlbar-icon-fill-opacity: 0.72 !important;
             --warning-icon-bgcolor: #FFA436 !important;
+            --tabs-navbar-shadow-color: rgba(0, 0, 0, 0) !important;
         }
     }
     /* DARK THEME */
@@ -173,6 +174,7 @@
             --toolbar-field-focus-color: rgb(251, 251, 254) !important;
             --urlbar-icon-fill-opacity: 1 !important;
             --warning-icon-bgcolor: #FFBD4F !important;
+            --tabs-navbar-shadow-color: rgba(0, 0, 0, 0) !important;
         }
     }
 
@@ -495,13 +497,9 @@
         :not(:-moz-lwtheme) #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
             box-shadow: none !important; /* tabs.css:449, Firefox 121 */
         }
-        :not(:-moz-lwtheme) #nav-bar:not([tabs-hidden="true"]) {
-            box-shadow: 0 calc(-1 * var(--tabs-navbar-shadow-size)) 0 var(--gtkless-navbar-shadow) !important; /* browser.css:82, Firefox 121 */
-        }
         /* LIGHT THEME */
         @media (prefers-color-scheme: light) {
             :not(:-moz-lwtheme) {
-                --gtkless-navbar-shadow: rgba(0, 0, 0, 0.12) !important;
                 --arrowpanel-background: rgb(255, 255, 255) !important;
                 --arrowpanel-border-color: rgb(240, 240, 244) !important;
                 --arrowpanel-color: rgba(0, 0, 0, 0.8) !important;
@@ -549,12 +547,12 @@
                 --toolbar-field-focus-color: rgba(0, 0, 0, 0.8) !important;
                 --urlbar-icon-fill-opacity: 0.72 !important;
                 --warning-icon-bgcolor: #FFA436 !important;
+                --tabs-navbar-shadow-color: rgba(0, 0, 0, 0.12) !important;
             }
         }
         /* DARK THEME */
         @media (prefers-color-scheme: dark) {
             :not(:-moz-lwtheme) {
-                --gtkless-navbar-shadow: rgba(0, 0, 0, 0.9) !important;
                 --arrowpanel-background: rgb(56, 56, 56) !important;
                 --arrowpanel-border-color: rgb(82, 82, 94) !important;
                 --arrowpanel-color: rgba(255, 255, 255, 1) !important;
@@ -601,6 +599,7 @@
                 --toolbar-field-focus-color: rgb(255, 255, 255) !important;
                 --urlbar-icon-fill-opacity: 1 !important;
                 --warning-icon-bgcolor: #FFBD4F !important;
+                --tabs-navbar-shadow-color: rgba(0, 0, 0, 0.9) !important;
             }
         }
     }
