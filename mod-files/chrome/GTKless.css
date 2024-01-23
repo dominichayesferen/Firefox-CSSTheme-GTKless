@@ -489,6 +489,7 @@
             --toolbarbutton-icon-fill: currentColor !important; /*global-shared.css:18, Firefox 120*/
             --urlbar-icon-fill-opacity: 0.9 !important; /*browser-shared.css:29, Firefox 120*/
             --warning-icon-bgcolor: light-dark(#FFA436, #FFBD4F) !important; /*toolbarbutton-icons.css:7, Firefox 120*/
+            --tabs-navbar-shadow-color: rgba(0, 0, 0, 0) !important;
         }
     }
     @media (-moz-bool-pref: "gtkless.colors-adwaita") {
