@@ -22,7 +22,7 @@
     }
 }
 
-/** @-moz-document url('chrome://browser/content/browser.xhtml'),
+@-moz-document url('chrome://browser/content/browser.xhtml'),
     url('chrome://global/content/commonDialog.xhtml'),
     url('chrome://browser/content/places/places.xhtml'),
     url('chrome://pippki/content/editcacert.xhtml'),
@@ -30,8 +30,7 @@
     url('chrome://pippki/content/exceptionDialog.xhtml'),
     url('chrome://mozapps/content/downloads/unknownContentType.xhtml'),
     url('chrome://global/content/appPicker.xhtml'),
-    url('chrome://browser/content/pageinfo/pageInfo.xhtml') { **/
-@-moz-document url('chrome://browser/content/browser.xhtml') {
+    url('chrome://browser/content/pageinfo/pageInfo.xhtml') {
     /* Colour palette for the browser UI */
     /* LIGHT THEME */
     @media (prefers-color-scheme: light) {
