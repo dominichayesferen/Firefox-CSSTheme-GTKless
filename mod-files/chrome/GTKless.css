@@ -390,41 +390,19 @@
         filter: drop-shadow(1px 1px 1.5px black) !important;
     }
 
-    /* Titlebar buttons from lwtheme - browser.css:364, mostly, Firefox 114 */
+    /* Titlebar buttons from lwtheme - browser.css:241, mostly, Firefox 114 */
     .titlebar-button {
-        appearance: none !important;
-        border-radius: 100% !important;
-        color: inherit !important;
-    }
-    .titlebar-button > .toolbarbutton-icon {
-        padding: 6px !important;
-        -moz-context-properties: stroke !important;
-        stroke: currentColor !important;
-    }
-    .titlebar-min {
-        list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important;
-    }
-    .titlebar-max {
-        list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important;
-    }
-    .titlebar-restore {
-        list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important;
-    }
-    .titlebar-close {
-        list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important;
-    }
-    .titlebar-button:hover {
-        background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
-    }
-    .titlebar-button:hover:active {
-        background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
-    }
-    .titlebar-close:hover {
-        background-color: #d70022 !important;
-        color: white !important;
-    }
-    .titlebar-close:hover:active {
-        background-color: #ff0039 !important;
+        padding-inline: 3px !important;
+        > .toolbarbutton-icon {
+            appearance: none !important;
+            border-radius: 100% !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            -moz-context-properties: stroke !important;
+            stroke: currentColor !important;
+            width: 24px !important;
+            height: 24px !important;
+        }
     }
 
     /* lwtheme-specific values in browser-shared */
