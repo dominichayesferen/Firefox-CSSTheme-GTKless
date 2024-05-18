@@ -22,7 +22,7 @@
     }
 }
 
-@-moz-document url('chrome://browser/content/browser.xhtml'),
+/** @-moz-document url('chrome://browser/content/browser.xhtml'),
     url('chrome://global/content/commonDialog.xhtml'),
     url('chrome://browser/content/places/places.xhtml'),
     url('chrome://pippki/content/editcacert.xhtml'),
@@ -30,11 +30,12 @@
     url('chrome://pippki/content/exceptionDialog.xhtml'),
     url('chrome://mozapps/content/downloads/unknownContentType.xhtml'),
     url('chrome://global/content/appPicker.xhtml'),
-    url('chrome://browser/content/pageinfo/pageInfo.xhtml') {
+    url('chrome://browser/content/pageinfo/pageInfo.xhtml') { **/
+@-moz-document url('chrome://browser/content/browser.xhtml') {
     /* Colour palette for the browser UI */
     /* LIGHT THEME */
     @media (prefers-color-scheme: light) {
-        :not(:-moz-lwtheme) {
+        :root:not([lwtheme]) {
             --lwt-accent-color: rgb(240, 240, 244) !important;
             --lwt-text-color: rgb(21, 20, 26) !important;
             --urlbarView-action-color: rgb(91, 91, 102) !important;
@@ -86,7 +87,7 @@
     }
     /* DARK THEME */
     @media (prefers-color-scheme: dark) {
-        :not(:-moz-lwtheme) {
+        :root:not([lwtheme]) {
             --lwt-accent-color: rgb(28, 27, 34) !important;
             --lwt-text-color: rgb(251, 251, 254) !important;
             --button-bgcolor: rgba(0, 0, 0, 0.33000001311302185) !important;
@@ -139,14 +140,14 @@
     /* Alternative opt-in Firefox palettes */
     /* GTK's colours */
     @media (-moz-bool-pref: "gtkless.use-gtk-colors") {
-        :not(:-moz-lwtheme) #navigator-toolbox {
+        :root:not([lwtheme]) #navigator-toolbox {
             &:-moz-window-inactive {
                 :root[tabsintitlebar] & {
                     color: InactiveCaptionText !important;
                 }
             }
         }
-        :not(:-moz-lwtheme) {
+        :root:not([lwtheme]) {
             --lwt-accent-color: ActiveCaption !important;
             --lwt-text-color: CaptionText !important;
             --urlbarView-action-color: LinkText !important; /*urlbarView.css:18, Firefox 122*/
@@ -196,12 +197,12 @@
 
     /* Adwaita from the popular hit GTK-library Libadwaita */
     @media (-moz-bool-pref: "gtkless.colors-adwaita") {
-        :not(:-moz-lwtheme) #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
-        :not(:-moz-lwtheme) #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+        :root:not([lwtheme]) #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+        :root:not([lwtheme]) #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
             box-shadow: none !important; /* tabs.css:449, Firefox 121 */
         }
         @media (prefers-color-scheme: light) {
-            :not(:-moz-lwtheme) {
+            :root:not([lwtheme]) {
                 --lwt-accent-color: #fff !important;
                 --lwt-text-color: rgba(0, 0, 0, 0.8) !important;
                 --urlbarView-action-color: rgb(91, 91, 102) !important;
@@ -253,7 +254,7 @@
         }
         /* DARK THEME */
         @media (prefers-color-scheme: dark) {
-            :not(:-moz-lwtheme) {
+            :root:not([lwtheme]) {
                 --lwt-accent-color: #303030 !important;
                 --lwt-text-color: #fff !important;
                 --button-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
@@ -385,12 +386,8 @@
             width: 2px !important;
         }
     }
-    /* UX Improvement: shadows for titlebuttons on bright themes */
-    :root[lwtheme-brighttext] .titlebar-button:not(.titlebar-close:hover) > .toolbarbutton-icon {
-        filter: drop-shadow(1px 1px 1.5px black) !important;
-    }
 
-    /* Titlebar buttons from lwtheme - browser.css:241, mostly, Firefox 125 */
+    /* Titlebar buttons from lwtheme - browser.css:241, mostly, Firefox 114 */
     .titlebar-button {
         padding-inline: 3px !important;
         > .toolbarbutton-icon {
@@ -406,7 +403,7 @@
     }
 
     /* lwtheme-specific values in browser-shared */
-    :root:not(:-moz-lwtheme) { /*browser-shared.css:107, Firefox 122*/
+    :root:not([lwtheme]) { /*browser-shared.css:107, Firefox 122*/
         color: var(--lwt-text-color) !important; /*TITLEBAR AREA*/
 
         --link-color: light-dark(rgb(0, 97, 224), rgb(0, 221, 255)) !important;
@@ -419,7 +416,7 @@
     }
 
     /* Tabs area */
-    :not(:-moz-lwtheme) #navigator-toolbox { /*browser-shared.css:174, Firefox 120*/ /* TITLEBAR AREA, toolbar is managed by *browser.css:75, Firefox 120* */
+    :root:not([lwtheme]) #navigator-toolbox { /*browser-shared.css:174, Firefox 120*/ /* TITLEBAR AREA, toolbar is managed by *browser.css:75, Firefox 120* */
         background: var(--lwt-accent-color) !important;
         color: inherit !important;
 
@@ -432,12 +429,12 @@
     }
 
     /* Tabs' attention colour */
-    :root:not(:-moz-lwtheme) {
+    :root:not([lwtheme]) {
         --tab-attention-icon-color: light-dark(rgb(42, 195, 162), rgb(84, 255, 189)) !important; /*tabs.css:23, partially, Firefox 122*/
     }
 
     /* Customise Firefox background texture */
-    :not(:-moz-lwtheme) #customization-container {
+    :root:not([lwtheme]) #customization-container {
         background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)) !important; /*customizeMode.css:32, Firefox 122*/
         background-color: unset !important;
     }
