@@ -387,7 +387,7 @@
         }
     }
 
-    /* Titlebar buttons from lwtheme - browser.css:241, mostly, Firefox 114 */
+    /* Titlebar buttons from lwtheme - browser.css:241, mostly, Firefox 125 */
     .titlebar-button {
         padding-inline: 3px !important;
         > .toolbarbutton-icon {
