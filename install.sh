@@ -38,7 +38,7 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 
 success=0
-for directory in ~/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/firefox ~/.librewolf ~/.var/app/io.gitlab.librewolf-community/.librewolf ~/.floorp ~/.var/app/one.ablaze.floorp/.floorp ~/.waterfox ~/.var/app/net.waterfox.waterfox/.waterfox ~/.var/app/net.mullvad.MullvadBrowser/.mullvad; do
+for directory in ~/.mozilla/firefox ~/snap/firefox/common/.mozilla/firefox ~/.var/app/org.mozilla.firefox/.mozilla/firefox ~/.librewolf ~/.var/app/io.gitlab.librewolf-community/.librewolf ~/.floorp ~/.var/app/one.ablaze.floorp/.floorp ~/.waterfox ~/.var/app/net.waterfox.waterfox/.waterfox ~/.var/app/net.mullvad.MullvadBrowser/.mullvad; do
     if [ -d $directory ]; then
         cd $directory
         if [ "$success" -gt 0 ]; then echo ""; fi
