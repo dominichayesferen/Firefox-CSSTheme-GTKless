@@ -51,14 +51,6 @@ Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK inte
 - Right-click menus, and menus spawned from the optional menubar, have been overhauled to be styled after Firefox's main menu (for consistency, and because there's no official menu style otherwise)
 - Buttons in Customise Toolbar are now styled after the buttons in Settings (potentially making this the first ever CSS mod to actually style the buttons in Customise Toolbar?)
 
-<h1>Theme options in about:config</h1>
-
-Here are options that can be set via about:config to further improve the experience while this CSS mod is installed:
-
-- `gtkless.no-titlebar-spacer`: Gets rid of the functionless space on the left of the tabs in titlebars
-- `gtkless.use-gtk-colors`: Changes colours to be based on your GTK3 stylesheet instead
-- `gtkless.colors-adwaita`: Changes colours to be based on LibAdwaita instead
-
 <h1>Notes</h1>
 
 - Most of the code on the CSS is taken out of Firefox's CSS, therefore credit mainly goes to the makers of Firefox's CSS (refer to LICENSE, too)

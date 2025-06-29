@@ -6,8 +6,7 @@
 // the changes will be overwritten when the application exits.
 
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("widget.content.allow-gtk-dark-theme", true);
-user_pref("widget.content.gtk-theme-override", "Adwaita");
+user_pref("browser.theme.native-theme", false);
 user_pref("widget.gtk.non-native-menu-styling", true);
 user_pref("widget.non-native-theme.enabled", true);
 user_pref("widget.gtk.theme-scrollbar-colors.enabled", false);
