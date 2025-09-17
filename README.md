@@ -42,7 +42,7 @@ To install this theme, simply do the following steps:
 
 <h1>Longevity of this CSS mod?</h1>
 
-Ultimately, I'm hoping to be done with this if Firefox ever gets decent GTK integration that rivals Chromium's, and even native GTK programs', or otherwise gets rid of that integration upstream someday. If that day ever comes (I honestly hope so), this will be archived for any future reference.
+This project will be archived for any future reference if upstream adds an option to preserve accent colourisation when Native Theme's disabled, and also removes all usage of the GTK 3 stylesheet's colour palette from all in-profile menus and dialogs when Native Theme is disabled - at that point, GTKless will have truly served its purpose and will no longer change anything.
 
 <h1>Summary of changes</h1>
 
