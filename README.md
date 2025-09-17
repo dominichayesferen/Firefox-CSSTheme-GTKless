@@ -48,7 +48,6 @@ This project will be archived for any future reference if upstream adds an optio
 
 - Native Theme is disabled but accent colour usage is forced back, meaning System Theme now visually matches the Light theme, on a light theme, or Dark on a dark theme, that Firefox otherwise has as optional theme selections (thus also matching how System Theme currently works on Microsoft Windows 10 and later if you don't have titlebar colouring turned on on them)
 - Context menus now use the same palette and styling as Firefox's main menu (for consistency, and because there's no official menu style otherwise)
-- Even if your GTK stylesheet is locked via an environment variable or whatever, Firefox will now still respect the dark theme preferences anyway, outside of the few hardcoded GTK controls Firefox has
 
 <h1>Notes</h1>
 
