@@ -9,7 +9,7 @@ Back then, Firefox's GTK 'integration'... was a mess to put it bluntly (not to o
 
 Prior to the release of Firefox 140, it didn't seem like the 'integration' was going to get better anytime soon in Firefox, so I decided to take it upon myself to prove that if Firefox got rid of the GTK 'integration' it would've been a less buggy experience without it... by just removing the GTK 'integration', with CSS-modding, where possible at the time.
 
-Nowadays, since the release of Firefox 140, Firefox has officially become GTKless, deleting most of the source code responsible for attempting to mimic GTK 3 stylesheets and leaving only the stylesheet's colour palette to be used - it was a glorious and very relieving day when I found out the news. Now, GTKless aims to get rid of the remaining colour palette usage and instead use Firefox's official built-in colour palette instead, as it does on all other platforms.
+Nowadays, since the release of Firefox 140, Firefox has officially become GTKless, deleting most of the source code responsible for attempting to mimic GTK 3 stylesheets and leaving only the stylesheet's colour palette to be used, and ultimately proving this endeavour correct - it was a glorious and very relieving day when I found out the news. Now, GTKless aims to get rid of the remaining colour palette usage and instead use Firefox's official built-in colour palette instead, as it does on all other platforms.
 
 As always, I have some limitations set, here, such as the desire to make it be usable in sandboxed versions of Firefox like the official Flatpak, so can't just recompile Firefox or whatever to do this, and this is the end result of working with those limitations in mind to try and do this.
 
